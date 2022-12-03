@@ -1,7 +1,0 @@
-{
-  "allowed_modules": [
-    "@minecraft/server",
-    "@minecraft/server-admin",
-	"@minecraft/server-net"
-  ]
-}
