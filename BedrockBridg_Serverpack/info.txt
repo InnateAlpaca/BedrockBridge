@@ -1,4 +1,5 @@
 BedrockBridge - by EsploratoriDevelopment
+version 1.0.2-beta
 
 INSTALLING
 1) install the "world_pack" on your world, and enable beta API (old experimental features)
