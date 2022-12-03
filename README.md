@@ -5,7 +5,7 @@ BedrockBridge is a discord bot that connects your discord-server to your bedrock
 Here you can get help and download the latest version of the pack, find a full installation tutorial, try the pack without installing it on our test-server. 
 
 ## Installation
-Short version (for expert users only) is this: invite bot, run `/setup`, download *worldpack* and add it to your world, enable experiments, install the *serverpack* on your server, navigate to `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/secrets.json` and insert the token that you get from discord by running `/new-token`.
+Short version (for expert users only) is this: [invite](https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands) bot, run `/setup`, download *worldpack* and add it to your world, enable experiments, install the *serverpack* on your server, navigate to `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/secrets.json` and insert the token that you get from discord by running `/new-token`.
 That's it.
 
 If you are not an expert user you may want to take a look at the following guide. More info about installing addons on servers (in general)) can be found [here](https://learn.microsoft.com/en-us/minecraft/creator/documents/scriptingservers).
