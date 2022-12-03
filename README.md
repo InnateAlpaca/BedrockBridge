@@ -50,10 +50,32 @@ Ban a player from your server. Note: this is not a top-security solution. If you
 * nametag
 
 Change nametag above a player in game. This command is not persistent. The nametag will remain until the player leaves the server.
-### 
-### 
-###  
+### mute
+* username
 
+Mute a player on the server. Note: they will still be able to chat using `/me` of `/say` (if they know about it).
+### unmute
+* username
+###  find
+* username
+
+get a player's location
+### inventory
+* username
+
+visualize player inventory's content
+### kill
+* username
+
+### list
+List all players online
+### gamemodes
+Lists all player and their gamemodes
+### proximity 
+* enabled: boolean
+* distance: number
+
+Enable/disable proximity chat, or set the distance. Players will be only able to read each other's messages if they are less than a certain distance far away.
 
  ## Bedrock commands
  These commands can be used from the bedrock chat, adding before the prefix you chose (or default one `!`) e.g. `!help`. You can change the prefix in `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/variables.json`.
