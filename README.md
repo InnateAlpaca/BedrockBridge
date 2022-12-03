@@ -20,9 +20,9 @@ If you are not an expert user you may want to take a look at the following guide
 *note: if you are not doing this on a new world (from *new world* settings menu) and you didn't have experiments enabled, mc has generated a copy of your world with experiments enabled. THIS is the world you need to use from now on (not the original version).*
 
 6. Copy this world from minecraft worlds folder (usually `%LocalAppData%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\minecraftWorlds`) to your server's folder (`<server-main-folder>/worlds`)
-7. Download *BedrockBridg_Serverpack.zip* and unzip it inside your main server folde. (e.g. *select where would you like to unip files to: `.../<server-main-folder>`*)
-8. Copy the token from step 3, navigate to `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/` and open *secrets.json*. Now replace the vauel after "token" with your token.
-9. (Optional) you can edit *varibles.json* in order to enable or disable certain functionalities.
+7. Download *BedrockBridg_Serverpack.zip* and unzip it inside your main server folder. (e.g. *select where would you like to unzip files to: `.../<server-main-folder>`*)
+8. Copy the token from step 3, navigate to `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/` and open *secrets.json*. Now replace the value after "token" with your token.
+9. (Optional) you can edit *variables.json* in order to enable or disable certain functionalities.
 10. Start your server and enjoy streamed chat and commands!
 
 ## Discord commands
