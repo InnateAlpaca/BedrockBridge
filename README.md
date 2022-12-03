@@ -8,7 +8,7 @@ Here you can get help and download the latest version of the pack, find a full i
 Short version (for expert users only) is this: [invite](https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands) bot, run `/setup`, download *worldpack* and add it to your world, enable experiments, install the *serverpack* on your server, navigate to `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/secrets.json` and insert the token that you get from discord by running `/new-token`.
 That's it.
 
-If you are not an expert user you may want to take a look at the following guide. More info about installing addons on servers (in general)) can be found [here](https://learn.microsoft.com/en-us/minecraft/creator/documents/scriptingservers).
+If you are not an expert user you may want to take a look at the following guide. More info about installing addons on servers (in general) can be found [here](https://learn.microsoft.com/en-us/minecraft/creator/documents/scriptingservers).
 ### Discord setup
 1. Invite BedrockBridge discord bot to your discord-server using this [link](https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands)
 2. Choose the channel you want to have bedrock-chat streamed to and run `/setup` in it
