@@ -1,0 +1,8 @@
+BedrockBridge - by EsploratoriDevelopment
+
+INSTALLING
+1) install the "world_pack" on your world, and enable beta API (old experimental features)
+2) go to your server main folder
+3) copy the folder "config" from this folder to into the folder of step 2). if asked to merge allow it.
+4)copy the folder "development_behaviour_packs" form this folder to folder of step 2). if asked to merge allow it.
+5) start the server
