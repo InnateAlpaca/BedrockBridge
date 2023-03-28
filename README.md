@@ -16,6 +16,8 @@ If you are not an expert user you may want to take a look at the following guide
 1. Invite BedrockBridge discord bot to your discord-server using this [link](https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands)
 2. Choose the channel you want to have bedrock-chat streamed to and run `/setup` in it
 3. Request a new token by running `/new-token`. Keep it safe.
+
+**If the messages are not streamed and your server is connected, give the bot admin permissions, then run `/setup`.** Succesful setup is needed in order to stream chat. If you need help don't hesitate to contact staff on the official discord server.
 ### Bedrock setup
 4. Download *BedrockBridge_worldpack.mcpack*, and add it to your minecraft launcher, by double clicking it.
 5. Open your world's settings (from minecraft launcher), add the pack and **enable** experimental features (now called **beta API**).
