@@ -8,7 +8,7 @@ You can also contact us by [email](mailto:development@esploratorismp.space).
 *Is it up to date?* So far supported versions are: **1.19.50, 1.19.60, 1.19.70** (latest), and minor following updates. You need to install the right addon version for each mc-version (check the tags for the right one).
 
 
-Feel free also to check our [FAQ](FAQ.MD) and [docs](DOCS.MD)
+Feel free also to check our [FAQ](FAQ.MD) and [DOCS](DOCS.MD)
 ## Installation
 Short version (for expert users only) is this: [invite](https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands) bot, run `/setup`, download *worldpack* and add it to your world, enable experiments, install the *serverpack* on your server, navigate to `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/secrets.json` and insert the token that you get from discord by running `/new-token`.
 That's it.
