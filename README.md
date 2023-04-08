@@ -29,3 +29,5 @@ If you are not an expert user you may want to take a look at the following guide
 8. Copy the token from step 3, navigate to `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/` and open *secrets.json*. Now replace the value after "token" with your token.
 9. (Optional) you can edit *variables.json* in order to enable or disable certain functionalities.
 10. Start your server and enjoy streamed chat and commands!
+
+Check the [DOCUMENTS](DOCS.MD) in order to see what commands you can run form discord, and enjoy!!
