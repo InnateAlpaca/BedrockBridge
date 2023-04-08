@@ -30,4 +30,4 @@ If you are not an expert user you may want to take a look at the following guide
 9. (Optional) you can edit *variables.json* in order to enable or disable certain functionalities.
 10. Start your server and enjoy streamed chat and commands!
 
-Check the [DOCUMENTS](DOCS.MD) in order to see what commands you can run form discord, and enjoy!!
+*Check the [documents](DOCS.MD) in order to see what commands you can run form discord, and enjoy!!*
