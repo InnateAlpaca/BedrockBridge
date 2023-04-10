@@ -35,7 +35,7 @@ Change nametag above a player in game. This command is not persistent. The namet
 ### mute
 * username
 
-Mute a player on the server. Note: they will still be able to chat using `/me` of `/say` (if they know about it).
+Mute a player on the server. Note: they will still be able to chat using `/me` or `/say` (if they know about it).
 ### unmute
 * username
 ###  find
