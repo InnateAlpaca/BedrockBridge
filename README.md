@@ -1,5 +1,5 @@
 # BedrockBridge
-* **Warning** for version 1.19.80 there is no downloadable tag at this moment. You can directly clone the repository or download the files you need: the repository is up to date.
+* **Note**: if you can't connect your server using this bot please check [FAQ](FAQ.md), or ask for help on the [support server](https://discord.gg/A2SDjxQshJ).
 
 
 BedrockBridge is a minecraft addon that connects your bedrock-server to your discord-server. This solution is intended especially for BDS (Bedrock Dedicated Server) but it can also be used on any bedrock server. All you need to do in order to use this bot is [inviting](https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands) the bot to your discord-server, and installing the addon in your bedrock-server. That's all you need to do. (check installation for more details about this procedure).
