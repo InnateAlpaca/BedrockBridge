@@ -33,4 +33,4 @@ Installing them on your server is very easy:
 1) download the new pack and unzip server_pack.
 2) now take the content of development_behaviour_pack folder and past it into the folder with the same name on your server-folder (replacing the old existing one). 
 3) when you restart the server the new version will be working (but you don't need to do it immediately).
-Note another way to summarize this is "replace the old `main.js` with the new `main.js`"
+Note another way to summarize this is "replace the old `main.js` with the new `main.js`.
