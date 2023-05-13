@@ -79,25 +79,31 @@ You can customize some functionalities of the pack from the following folder `<s
 
 ### prefix
 * option: char (any single character)
+
 Bedrock commands prefix, default value is `!`, and you can change it to whatever you prefer (some commonly used options are e.g. `.` and  `?`)
 
 ### mute_capability
 * option: boolean (true/false)
+
 This option enables/disables the discord command [`/mute`](DOCS.MD#mute)
 
 ### ban_capability
 * option: boolean (true/false)
+
 This option enables/disables the discord command [`/ban`](DOCS.MD#ban)
 
 ### proximity_chat
 * option: boolean (true/false)
+
 This option enables/disables the proximity chat. What's that? Proximity chat will allow players to send regular messages **only** to players within a certain radiusfrom them: people will be able to communicate only if they are close one to another, which is a nice thing for servers where people should interact.
 
 ### proximity_distance
 * number
+
 If proximity chat is enabled this option will set how many blocks away players can be in order to receive other players messages.
  
 ### origin
 * domain (e.g. `myserver.aternos.me`)
+
 This option is dedicated to people running a server on free hosting companies, or people who have to change server-address very often. This option will keep your token valid even if you are connecting from a different server-address, as long as the domain you added here is pointing to that origin.
  
