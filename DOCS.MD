@@ -31,7 +31,7 @@ Ban a player from your server. Note: this is not a top-security solution. If you
 * username
 * nametag
 
-Change nametag above a player in game. This command is not persistent. The nametag will remain until the player leaves the server.
+Change nametag above a player in game. This command is persistent since BedrockBrodge 1.2.0 (nametag will remain untill you change it).
 ### mute
 * username
 
