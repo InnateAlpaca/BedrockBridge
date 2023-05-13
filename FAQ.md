@@ -24,6 +24,7 @@ If you are still having troubles don't hesitate to **contact us** on the [offici
 
 ### How is it possible that everyone can run all commands??
 Yes, some bots let you choose what roles can run certain commands, why does this bot not do it? well yes I still need to code that part, that's a reason. Another reason is that discord already allows you to do that natively. 
+
 **How?**
 Go to `Menu->Integrations->BedrockBridge` and you will find a list of commands. You can chose what roles can run bot's commands, and what channels can the commands be run from. Then you can even customise single commands' permissions. 
 Here's an example ![discord_setup](https://i.imgur.com/QRKOWRb.png) 
@@ -34,3 +35,9 @@ Installing them on your server is very easy:
 2) now take the content of development_behaviour_pack folder and past it into the folder with the same name on your server-folder (replacing the old existing one). 
 3) when you restart the server the new version will be working (but you don't need to do it immediately).
 Note another way to summarize this is "replace the old `main.js` with the new `main.js`.
+
+### I'm on Aternos, why does it keep saying that the token is not valid? I've changed it like a hundred times now!
+Quick fix: go to `variables.json` and add this entry `"origin": "<your server address>"`, where *\<your server address\>* is the address you use to connect to the server (typically with this format *\<name\>.aternos.me*).
+ 
+ **Alright, but why was that?**
+ Aternos, in order to grant everyone a server to play on, will start your world on a different node every time. This is in conflict with our bot mechanics, which uses location-secured tokens (tokens can only be used from a single server-address). Basically every time you start your aternos server you invalidate the old token. With BedrockBridge *1.2.1-alpha* we introduced the *origin* option which gets around this problem (linking your token to server-origin rather than server-address). Origin option can also be used by people owning a domain, if they want.
