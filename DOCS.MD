@@ -58,44 +58,46 @@ Lists all player and their gamemodes
 * distance: number
 
 Enable/disable proximity chat, or set the distance. Players will be only able to read each other's messages if they are less than a certain distance far away.
+## Bedrock commands
+These commands can be used from the bedrock chat, adding before the prefix you chose (or default one `!`) e.g. `!help`. You can change the prefix in`<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/variables.json`.
+Commands that can be run from bedrock-server are very limited as this pack's purpose is providing discord-support rather than in-game support.
+### help
+Returns a list of commands that you can use.
+### connect
+If the server disconnects from the bot for some reason, you can run this in order to reconnect.
+### messages
+If the server got disconnected from the bot for some reason (bad token, connection error, wrong ip...) it will be logged here.
+### status
+Current status of the server (starting, online, sleeping, offline)
+### logging
+* value: accepts `on` or `off`
 
- ## Bedrock commands
- These commands can be used from the bedrock chat, adding before the prefix you chose (or default one `!`) e.g. `!help`. You can change the prefix in `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/variables.json`.
- Commands that can be run from bedrock-server are very limited as this pack's purpose is providing discord-support rather than in-game support.
- ### help
- Returns a list of commands that you can use.
- ### connect
- If the server disconnects from the bot for some reason, you can run this in order to reconnect.
- ### messages
- If the server got disconnected from the bot for some reason (bad token, connection error, wrong ip...) it will be logged here.
- ### status
- Current status of the server (starting, online, sleeping, offline)
- ### logging
- * value: accepts `on` or `off`
+Enable error logging. If there is any internal or external error it will be logged in chat.
+
+## Config options
+You can customize some functionalities of the pack from the following folder `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/variables.json`. *Note:changes to these settings will become effective only after server restart*.
+
+### prefix
+* option: char (any single character)
+Bedrock commands prefix, default value is `!`, and you can change it to whatever you prefer (some commonly used options are e.g. `.` and  `?`)
+
+### mute_capability
+* option: boolean (true/false)
+This option enables/disables the discord command [`/mute`](DOCS.MD#mute)
+
+### ban_capability
+* option: boolean (true/false)
+This option enables/disables the discord command [`/ban`](DOCS.MD#ban)
+
+### proximity_chat
+* option: boolean (true/false)
+This option enables/disables the proximity chat. What's that? Proximity chat will allow players to send regular messages **only** to players within a certain radiusfrom them: people will be able to communicate only if they are close one to another, which is a nice thing for servers where people should interact.
+
+### proximity_distance
+* number
+If proximity chat is enabled this option will set how many blocks away players can be in order to receive other players messages.
  
- Enable error logging. If there is any internal or external error it will be logged in chat.
- 
- ## Config options
- You can customize some functionalities of the pack from the following folder `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/variables.json`. *Note: changes to these settings will become effective only after server restart*.
- 
- ### prefix
- * option: char (any single character)
- Bedrock commands prefix, default value is `!`, and you can change it to whatever you prefer (some commonly used options are e.g. `.` and  `?`)
- 
- ### mute_capability
- * option: boolean (true/false)
- This option enables/disables the discord command [`/mute`](DOCS.MD#mute)
- 
-  ### ban_capability
- * option: boolean (true/false)
- This option enables/disables the discord command [`/ban`](DOCS.MD#ban)
- 
-   ### proximity_chat
- * option: boolean (true/false)
- This option enables/disables the proximity chat. What's that? Proximity chat will allow players to send regular messages **only** to players within a certain radius from them: people will be able to communicate only if they are close one to another, which is a nice thing for servers where people should interact.
- 
-   ### proximity_distance
- * number
- If proximity chat is enabled this option will set how many blocks away players can be in order to receive other players messages.
- 
+### origin
+* domain (e.g. `myserver.aternos.me`)
+This option is dedicated to people running a server on free hosting companies, or people who have to change server-address very often. This option will keep your token valid even if you are connecting from a different server-address, as long as the domain you added here is pointing to that origin.
  
