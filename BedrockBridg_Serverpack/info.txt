@@ -1,4 +1,4 @@
-BedrockBridge v1.2.1-alpha by EsploratoriDevelopment
+BedrockBridge v1.2.2-alpha by EsploratoriDevelopment
 compatible with Bedrock 1.19.80 (till the next major update)
 
 INSTALLING
