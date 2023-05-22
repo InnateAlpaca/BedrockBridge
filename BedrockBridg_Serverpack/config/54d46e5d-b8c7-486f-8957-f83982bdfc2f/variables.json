@@ -2,7 +2,7 @@
 	"prefix": "!",
 
 	"discord_link": true,
-	"startup_notify": true,
+	"startup_notify": false,
 
 	"mute_capability": true,
 	"ban_capability": true,
