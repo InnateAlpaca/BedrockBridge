@@ -7,5 +7,5 @@
 	"mute_capability": true,
 	"ban_capability": true,
 	"proximity_chat": false,
-	"proximity_distance": 100,
+	"proximity_distance": 100
 }
