@@ -138,7 +138,7 @@ Customise.js is a file inside `BedrockBridge/scripts` folder. Modifying it you c
 Inside the file you will find two functions named `downStreamMessage` and `upStreamMessage`. These functions are documented, which should help you to see how to change them.
 * `downStreamMessage`
 
-This function will modify how messages from discord are shown in your bedrock-chat, this can be integrated with chat-roles, or chat-colors (you can check (this)[https://www.digminecraft.com/lists/sign_color_list_bedrock.php] for more details). Information you get is sender discord-displayname, message, and [roles](https://www.itgeared.com/how-to-get-role-id-on-discord) of the sender (as ids).
+This function will modify how messages from discord are shown in your bedrock-chat, this can be integrated with chat-roles, or chat-colors (you can check (this)[https://www.digminecraft.com/lists/sign_color_list_bedrock.php] for more details). Information you get is sender discord-displayname, message, and [roles](https://www.itgeared.com/how-to-get-role-id-on-discord.php) of the sender (as ids).
 * `upStreamMessage`
 
 This function will modify how chat bedrock-chat is displayed on discord: you can change the name of the sender and content of the message. You will typically want to change `player.nick` (which is a custom property returning discord-nametag if it's definied, xbox nametag otherwise) to `player.nametag` or `player.name` (xbox username). Still you may want to show differently chat from special users such as ops, mods, or people having special tags (e.g. `player.hasTag('MOD')`).
