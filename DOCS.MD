@@ -61,7 +61,7 @@ Enable/disable proximity chat, or set the distance. Players will be only able to
 ### claimdc
 * token
 
-Your chat from bedrock will now be streamed showing your discord nametag, and discord picture. Inorder to "link" your accounts (as for chat-display) run `!linkdc` on bedrock-chat and wait for the token. When you receive the token go in discord and run `/claimdc <token>`. You need to be online during the whole procedure. The token will expire after a few minutes.
+Your chat from bedrock will now be streamed showing your discord nametag, and discord picture. In order to "link" your accounts (as for chat-display) run `!linkdc` on bedrock-chat and wait for the token. When you receive the token go in discord and run `/claimdc <token>`. You need to be online during the whole procedure. The token will expire after a few minutes.
 
 Enable error logging. If there is any internal or external error it will be logged in chat.
 
@@ -77,6 +77,10 @@ Commands that can be run from bedrock-server are very limited as this pack's pur
 Returns a list of commands that you can use.
 ### connect
 If the server disconnects from the bot for some reason, you can run this in order to reconnect.
+### linkdc
+You will receive a token which you can use on discord (`/claimdc`) so that all your messages will be streamed showing your discord-name, and discord-pfp.
+### unlink
+Reset your discord chat-stream appearence: picture and discord-name will be deleted. From next login your pfp will reset to xbox-pfp, your name to your nametag.
 ### messages
 If the server got disconnected from the bot for some reason (bad token, connection error, wrong ip...) it will be logged here.
 ### status
@@ -112,8 +116,41 @@ This option enables/disables the proximity chat. What's that? Proximity chat wil
 
 If proximity chat is enabled this option will set how many blocks away players can be in order to receive other players messages.
  
+### discord_link
+* boolean (true/false)
+
+Allow people to have their discord-pfp and discord-name displayed in discord when they write in chat (instead of xbox pfp, and nametag). You may want to disable this if people are using it in order to trick your mods. 
+
+### startup_notify
+* boolean (true/false)
+
+Get a notification every time your server starts (actually when the script is started).
+
 ### origin
 * domain (e.g. `myserver.aternos.me`)
 
 This option is dedicated to people running a server on free hosting companies, or people who have to change server-address very often. This option will keep your token valid even if you are connecting from a different server-address, as long as the domain you added here is pointing to that origin.
  
+## Customise.js
+Customise.js is a file inside `BedrockBridge/scripts` folder. Modifying it you can change BedrockBridge behaviour, develop plugins for the bot and share them!
+
+### chat-stream functions
+Inside the file you will find two functions named `downStreamMessage` and `upStreamMessage`. These functions are documented, which should help you to see how to change them.
+* `downStreamMessage`
+
+This function will modify how messages from discord are shown in your bedrock-chat, this can be integrated with chat-roles, or chat-colors (you can check (this)[https://www.digminecraft.com/lists/sign_color_list_bedrock.php] for more details). Information you get is sender discord-displayname, message, and [roles](https://www.itgeared.com/how-to-get-role-id-on-discord) of the sender (as ids).
+* `upStreamMessage`
+
+This function will modify how chat bedrock-chat is displayed on discord: you can change the name of the sender and content of the message. You will typically want to change `player.nick` (which is a custom property returning discord-nametag if it's definied, xbox nametag otherwise) to `player.nametag` or `player.name` (xbox username). Still you may want to show differently chat from special users such as ops, mods, or people having special tags (e.g. `player.hasTag('MOD')`).
+### ignore logs
+* `ignore_death`
+Prevent embed being sent for certain players. Can be dynamically changed.
+
+* `ignore_log`
+Same as above, won't send login/logout embeds for this player.
+
+* `ignore_chat`
+chat for this player won't be streamed. Consider using `/mute` as a punitive measure intead of this.
+
+### commands.js
+This is a different file from Customise.js. It contains a list of commands that can be run from discord with `/command`. You can allow/disallow any command you want. In order to disable them all just delete the entire list (leaving an empty one). If you want to have only a few commands allowed remove all the others from the list.
