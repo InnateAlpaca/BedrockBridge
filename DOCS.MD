@@ -41,7 +41,7 @@ Mute a player on the server. Note: they will still be able to chat using `/me` o
 ###  find
 * username
 
-get a player's location
+get a player's location. Its dimension is shown by a block image (dirt for overworld, netherrak for nether, endstone for end).
 ### inventory
 * username
 
@@ -58,6 +58,18 @@ Lists all player and their gamemodes
 * distance: number
 
 Enable/disable proximity chat, or set the distance. Players will be only able to read each other's messages if they are less than a certain distance far away.
+### claimdc
+* token
+
+Your chat from bedrock will now be streamed showing your discord nametag, and discord picture. Inorder to "link" your accounts (as for chat-display) run `!linkdc` on bedrock-chat and wait for the token. When you receive the token go in discord and run `/claimdc <token>`. You need to be online during the whole procedure. The token will expire after a few minutes.
+
+Enable error logging. If there is any internal or external error it will be logged in chat.
+
+### kick
+* username
+
+Will kick this username from the server.
+
 ## Bedrock commands
 These commands can be used from the bedrock chat, adding before the prefix you chose (or default one `!`) e.g. `!help`. You can change the prefix in`<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/variables.json`.
 Commands that can be run from bedrock-server are very limited as this pack's purpose is providing discord-support rather than in-game support.
@@ -71,8 +83,6 @@ If the server got disconnected from the bot for some reason (bad token, connecti
 Current status of the server (starting, online, sleeping, offline)
 ### logging
 * value: accepts `on` or `off`
-
-Enable error logging. If there is any internal or external error it will be logged in chat.
 
 ## Config options
 You can customize some functionalities of the pack from the following folder `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/variables.json`. *Note:changes to these settings will become effective only after server restart*.
