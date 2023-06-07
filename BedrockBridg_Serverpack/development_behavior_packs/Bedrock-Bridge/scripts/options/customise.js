@@ -14,7 +14,6 @@ import { world, Player } from '@minecraft/server';
  */
 const downStreamMessage = async (author, message, roles)=>{
     world.sendMessage(`§9<${author}> ${message}§r`);
-    // world.sendMessage("", {with:"InnateALpaca102"})
 }
 
 
