@@ -8,7 +8,7 @@ So this is the configuration:
 Now we will list all the commands that you can currently run on your discord server as well as commands that you can run on your bedrock-server.
 
 ## Discord commands
-Regular commands can be run by any server owner (as long as they are at the least Admin of their discord server)
+Regular commands can be run by any server owner (as long as they are at the least Admin of their discord server). You can also check [this clip](https://www.youtube.com/watch?v=z4hX4c2QNjI) showing all commands.
 ### help
 Find all you need to get started with BedrockBridge Bot.
 ### setup
