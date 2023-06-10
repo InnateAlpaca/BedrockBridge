@@ -13,6 +13,7 @@ First thing to do is understanding where the problem is:
   * You are using the wrong version: there is a version of this pack for each major minecraft update. Versions are not interchangeable (you need to instal the right one). Check the github [*tags*](https://github.com/InnateAlpaca/BedrockBridge/tags) for the right one.
 * Nice it works... but it says "offline". Then your server was not able to connect to the bot, try to run in chat `!messages` and see if is there any. Most probable issue is:
   * You haven't added the token to the [config file](BedrockBridge#bedrock-setup) (or your token is no longer valid, in this case request a new one from your discord server).
+  * It's also possible that your hosting provider doesn't support custom config folders. In that case paste the content of the custom config (`<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f`) into the default config (`<server-main-folder>/config/default/`) and restart the server: from this time on you can forget about the `54d46e5d-b8c7-486f-8957-f83982bdfc2f` folder.
 * Nope that was all fine, but I still can't see the chat! Well, in this case the problem is with discord setup. 
   * make sure that you ran `/setup` on your discord server
   * try to reinvite the bot

@@ -17,6 +17,8 @@ Short version (for expert users only) is this: [invite](https://discord.com/api/
 That's it.
 
 If you are not an expert user you may want to take a look at the following guide. More info about installing addons on servers (in general) can be found [here](https://learn.microsoft.com/en-us/minecraft/creator/documents/scriptingservers).
+
+Don't forget to check our [YouTube](https://www.youtube.com/@Esploratori-Development/featured) tutorials: installation on [hosted servers](https://www.youtube.com/watch?v=10auxMSfVt8), and on [Aternos](https://www.youtube.com/watch?v=JlVKpC0o8jg)!
 ### Discord setup
 1. Invite BedrockBridge discord bot to your discord-server using this [link](https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands)
 2. Choose the channel you want to have bedrock-chat streamed to and run `/setup` in it
