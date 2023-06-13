@@ -28,8 +28,8 @@ Don't forget to check our [YouTube](https://www.youtube.com/@Esploratori-Develop
 ### Bedrock setup
 4. [Download](https://github.com/InnateAlpaca/BedrockBridge/releases/latest) BedrockBridge addon.
 5. **Enable** experimental features (now called **beta API**) on your world ([*yt*](https://youtu.be/10auxMSfVt8?t=97)).
-6. Upload the folder called `Bedrock-Bridge` inside your server's `<server main folder>/behaviour_packs folder`.
-7. Go to `<server main folder>/worlds/<your world's name>/world_behavior_packs.json` and add the following line: `{ "pack_id" : "b17755d2-3cc0-424b-89dd-558fc98513f5", "version" : [ 0, 0, 1 ]}` (between the square brackets you find already there)
+6. Upload the folder called `Bedrock-Bridge` inside your server's `<server main folder>/behaviour_packs folder` ([*yt*](https://youtu.be/10auxMSfVt8?t=206)).
+7. Go to `<server main folder>/worlds/<your world's name>/world_behavior_packs.json` and add the following line: `{ "pack_id" : "b17755d2-3cc0-424b-89dd-558fc98513f5", "version" : [ 0, 0, 1 ]}` (between the square brackets you find already there) ([*yt*](https://youtu.be/10auxMSfVt8?t=257))
 8. Go to `<server main folder>/config` and paste the folder (from the downloaded pack) `config/b17755d2-3cc0-424b-89dd-558fc98513f5` ([*yt*](https://youtu.be/10auxMSfVt8?t=330))
 9. Now copy your token (from step 3) and paste it to `<server main folder>/config/b17755d2-3cc0-424b-89dd-558fc98513f5/secrets.json` replacing the 0 valued token.
 10. Start your server and enjoy streamed chat and [commands](https://www.youtube.com/watch?v=z4hX4c2QNjI)!
