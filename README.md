@@ -21,20 +21,17 @@ If you are not an expert user you may want to take a look at the following guide
 Don't forget to check our [YouTube](https://www.youtube.com/@Esploratori-Development/featured) tutorials: installation on [hosted servers](https://www.youtube.com/watch?v=10auxMSfVt8), and on [Aternos](https://www.youtube.com/watch?v=JlVKpC0o8jg)!
 ### Discord setup
 1. Invite BedrockBridge discord bot to your discord-server using this [link](https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands)
-2. Choose the channel you want to have bedrock-chat streamed to and run `/setup` in it
+2. Choose the channel you want to have bedrock-chat streamed to and run `/setup` in it.
 3. Request a new token by running `/new-token`. Keep it safe.
 
 **If the messages are not streamed and your server is connected, give the bot admin permissions, then run `/setup`.** Successful setup is needed in order to stream chat. If you need help don't hesitate to contact staff on the official discord server.
 ### Bedrock setup
-4. Download *BedrockBridge_worldpack.mcpack*, and add it to your minecraft launcher, by double clicking it.
-5. Open your world's settings (from minecraft launcher), add the pack and **enable** experimental features (now called **beta API**).
-
-*note: if you are not doing this on a new world (from *new world* settings menu) and you didn't have experiments enabled, mc has generated a copy of your world with experiments enabled. THIS is the world you need to use from now on (not the original version).*
-
-6. Copy this world from minecraft worlds folder (usually `%LocalAppData%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\minecraftWorlds`) to your server's folder (`<server-main-folder>/worlds`)
-7. Download *BedrockBridg_Serverpack.zip* and unzip it inside your main server folder. (e.g. *select where would you like to unzip files to: `.../<server-main-folder>`*)
-8. Copy the token from step 3, navigate to `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/` and open *secrets.json*. Now replace the value after "token" with your token.
-9. (Optional) you can edit *variables.json* in order to enable or disable certain functionalities.
-10. Start your server and enjoy streamed chat and commands!
+4. [Download](https://github.com/InnateAlpaca/BedrockBridge/releases/latest) BedrockBridge addon.
+5. **Enable** experimental features (now called **beta API**) on your world ([*yt*](https://youtu.be/10auxMSfVt8?t=97)).
+6. Upload the folder called `Bedrock-Bridge` inside your server's `<server main folder>/behaviour_packs folder`.
+7. Go to `<server main folder>/worlds/<your world's name>/world_behavior_packs.json` and add the following line: `{ "pack_id" : "b17755d2-3cc0-424b-89dd-558fc98513f5", "version" : [ 0, 0, 1 ]}` (between the square brackets you find already there)
+8. Go to `<server main folder>/config` and paste the folder (from the downloaded pack) `config/b17755d2-3cc0-424b-89dd-558fc98513f5` ([*yt*](https://youtu.be/10auxMSfVt8?t=330))
+9. Now copy your token (from step 3) and paste it to `<server main folder>/config/b17755d2-3cc0-424b-89dd-558fc98513f5/secrets.json` replacing the 0 valued token.
+10. Start your server and enjoy streamed chat and [commands](https://www.youtube.com/watch?v=z4hX4c2QNjI)!
 
 *Check the [documents](DOCS.MD) in order to see what commands you can run form discord, and enjoy!!*
