@@ -16,7 +16,7 @@ Feel free also to check our [FAQ](FAQ.md) and [DOCS](DOCS.MD)
 Short version (for expert users only) is this: [invite](https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands) bot, run `/setup`, download *worldpack* and add it to your world, enable experiments, install the *serverpack* on your server, navigate to `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/secrets.json` and insert the token that you get from discord by running `/new-token`.
 That's it.
 
-If you are not an expert user you may want to take a look at the following guide. More info about installing addons on servers (in general) can be found [here](https://learn.microsoft.com/en-us/minecraft/creator/documents/scriptingservers).
+If you are not an expert user you may want to take a look at the following guide. More info about installing addons on servers (in general) can be found [here](https://learn.microsoft.com/en-us/minecraft/creator/documents/scriptingservers). If you are having troubles setting up the addon you can also use the [auto-installer](https://bedrockbridge.esploratori.space/auto-installer.html) tool!
 
 Don't forget to check our [YouTube](https://www.youtube.com/@Esploratori-Development/featured) tutorials: installation on [hosted servers](https://www.youtube.com/watch?v=10auxMSfVt8), and on [Aternos](https://www.youtube.com/watch?v=JlVKpC0o8jg)!
 ### Discord setup
