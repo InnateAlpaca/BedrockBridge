@@ -1,45 +1,41 @@
 ---
 # DO NOT TOUCH — This file was automatically generated. See https://github.com/mojang/minecraftapidocsgenerator to modify descriptions, examples, etc.
-author: jakeshirley
-ms.author: jashir
+author: InnateAlpaca
 ms.prod: gaming
-title: minecraft/server-net Module
-description: Contents of the @minecraft/server-net module
+title: esploratori/bridgeAPI Module
+description: Contents of the esploratori/bridgeAPI module
 ---
-# @minecraft/server-net Module
+# esploratori/bridgeAPI Module
 
-The `@minecraft/server-net` module contains types for executing HTTP-based requests. This module can only be used on Bedrock Dedicated Server.
-
-> [!CAUTION]
-> This module is still in pre-release.  It may change or it may be removed in future releases.
-
-## Manifest Details
-```json
-{
-    "module_name": "@minecraft/server-net",
-    "version": "1.0.0-beta"
-}
-```
+The `esploratori/bridgeAPI` module contains resources for customising and enhance BedrockBridge's capabilities.
 
 ## Available Versions
-- `1.0.0-beta`
-
-## Enumerations
-- [HttpRequestMethod](HttpRequestMethod.md)
+- `1.0.0`
 
 ## Classes
-- [HttpClient](HttpClient.md)
-- [HttpHeader](HttpHeader.md)
-- [HttpRequest](HttpRequest.md)
-- [HttpResponse](HttpResponse.md)
+- [WorldBridge](WorldBridge.md)
+- [bedrockCommands](bedrockCommands.md)
+- [commandArgument](commandArgument.md)
+- [bridgeCommands](bridgeCommands.md)
+- [bridgeEvents](bridgeEvents.md)
+- [petDieLogEvent](petDieLogEvent.md)
+- [petDieLogEventSignal](petDieLogEventSignal.md)
+- [playerDieLogEvent](playerDieLogEvent.md)
+- [playerDieLogEventSignal](playerDieLogEventSignal.md)
+- [playerLeaveLogEvent](playerLeaveLogEvent.md)
+- [playerLeaveLogEventSignal](playerLeaveLogEventSignal.md)
+- [playerJoinLogEvent](playerJoinLogEvent.md)
+- [playerJoinLogEventSignal](playerJoinLogEventSignal.md)
+- [chatDownStreamEvent](chatDownStreamEvent.md)
+- [chatDownStreamEventSignal](chatDownStreamEventSignal.md)
+- [chatUpStreamEvent](chatUpStreamEvent.md)
+- [chatUpStreamEventSignal](chatUpStreamEventSignal.md)
+- [bridgeInitializeEvent](bridgeInitializeEvent.md)
+- [bridgeInitializeEventSignal](bridgeInitializeEventSignal.md)
 
 ## Objects
   
-### **http**
-`static read-only http: HttpClient;`
+### **bridge**
+`static read-only bridge: WorldBridge;`
 
-Type: [*HttpClient*](HttpClient.md)
-
-## Change Log
-## 1.0.0-beta
-#### Added `@minecraft/server-net` Module
+Type: [*WorldBridge*](WorldBridge.md)
