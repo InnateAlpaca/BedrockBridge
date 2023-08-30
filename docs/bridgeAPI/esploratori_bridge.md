@@ -18,20 +18,20 @@ The `esploratori/bridgeAPI` module contains resources for customising and enhanc
 - [commandArgument](commandArgument.md)
 - [bridgeCommands](bridgeCommands.md)
 - [bridgeEvents](bridgeEvents.md)
-- [petDieLogEvent](petDieLogEvent.md)
-- [petDieLogEventSignal](petDieLogEventSignal.md)
-- [playerDieLogEvent](playerDieLogEvent.md)
-- [playerDieLogEventSignal](playerDieLogEventSignal.md)
-- [playerLeaveLogEvent](playerLeaveLogEvent.md)
-- [playerLeaveLogEventSignal](playerLeaveLogEventSignal.md)
-- [playerJoinLogEvent](playerJoinLogEvent.md)
-- [playerJoinLogEventSignal](playerJoinLogEventSignal.md)
-- [chatDownStreamEvent](chatDownStreamEvent.md)
-- [chatDownStreamEventSignal](chatDownStreamEventSignal.md)
-- [chatUpStreamEvent](chatUpStreamEvent.md)
-- [chatUpStreamEventSignal](chatUpStreamEventSignal.md)
-- [bridgeInitializeEvent](bridgeInitializeEvent.md)
-- [bridgeInitializeEventSignal](bridgeInitializeEventSignal.md)
+- [petDieLogEvent]
+- [petDieLogEventSignal]
+- [playerDieLogEvent]
+- [playerDieLogEventSignal]
+- [playerLeaveLogEvent]
+- [playerLeaveLogEventSignal]
+- [playerJoinLogEvent]
+- [playerJoinLogEventSignal]
+- [chatDownStreamEvent]
+- [chatDownStreamEventSignal]
+- [chatUpStreamEvent]
+- [chatUpStreamEventSignal]
+- [bridgeInitializeEvent]
+- [bridgeInitializeEventSignal]
 
 ## Objects
   
