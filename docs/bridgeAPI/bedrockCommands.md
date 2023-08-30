@@ -4,9 +4,6 @@ A class that provides command register system for BedrockBridge plugins.
 
 ## Methods
 - [registerCommand](#registerCommand)
-- [run](#run)
-- [runInterval](#runinterval)
-- [runTimeout](#runtimeout)
 
 ### **registerCommand**
 `
