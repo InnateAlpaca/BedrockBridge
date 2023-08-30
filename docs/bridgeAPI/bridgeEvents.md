@@ -18,16 +18,6 @@ This event fires every time someone sends a message on mc chat, you can edit how
 
 Type: [*chatUpStreamEventSignal*]
 
-### **chatSend**
-`read-only chatSend: ChatSendAfterEventSignal;`
-
-This event is triggered after a chat message has been broadcast or sent to players.
-
-Type: [*ChatSendAfterEventSignal*](ChatSendAfterEventSignal.md)
-
-> [!CAUTION]
-> This property is still in pre-release.  Its signature may change or it may be removed in future releases.
-
 ### **chatDownStream**
 `read-only chatDownStream: chatDownStreamEventSignal;`
 
