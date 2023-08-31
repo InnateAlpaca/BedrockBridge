@@ -51,13 +51,10 @@ visualize player inventory's content
 
 ### list
 List all players online
+
 ### gamemodes
 Lists all player and their gamemodes
-### proximity 
-* enabled: boolean
-* distance: number
 
-Enable/disable proximity chat, or set the distance. Players will be only able to read each other's messages if they are less than a certain distance far away.
 ### claimdc
 * token
 
