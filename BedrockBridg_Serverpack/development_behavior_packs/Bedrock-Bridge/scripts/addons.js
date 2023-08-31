@@ -86,6 +86,12 @@ class Player extends mc.Player {
     
     /**@type {string} discord nametag of the player, if profile is linked.*/
     dcNametag
+
+    /**@type {boolean} returns if a player is muted.*/
+    muted
+
+    /**@type {boolean} returns if a player is deaf, won't visualise messages from discord.*/
+    deaf
     
     /**mute a player from bedrock and discord chat.*/
     mute() { /** body of function */ }
