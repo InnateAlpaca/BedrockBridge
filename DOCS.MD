@@ -95,7 +95,10 @@ If the server got disconnected from the bot for some reason (bad token, connecti
 Current status of the server (starting, online, sleeping, offline)
 ### logging
 * value: accepts `on` or `off`
-
+### deaf
+Stop receiving messages from discord.
+### undeaf
+Resume receiving on your bedrock chat messages form discord.
 ## Config options
 You can customize some functionalities of the pack from the following folder `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/variables.json`. 
 
