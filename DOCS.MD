@@ -17,6 +17,12 @@ Find all you need to get started with BedrockBridge Bot.
 Set up your server, initialize it. You need to run it in order to be able to do anything else with the bot. If you select a channel, that channel will be used for streaming chat, otherwise the bot will use the channel where the command has been run.
 ### new-token
 Generate a new token for your server. Note: once you did this your old token won't be valid anymore and you won't be able to connect with your server unless you use the new token. Reasons to change token can be because you leaked the old one, or because you changed your server's ip (in fact each token can only be used from 1 ip).
+
+### announce
+* message: message to be displayed
+
+Sends a message to bedrock as announcement (doesn0t display user's name).
+
 ### command
 * command: mc command to run, without `/`.
 
@@ -34,6 +40,7 @@ Ban a player from your server. Note: this is not a top-security solution. If you
 Change nametag above a player in game. This command is persistent since BedrockBrodge 1.2.0 (nametag will remain untill you change it).
 ### mute
 * username
+* time: (optional) mute duration, in minutes
 
 Mute a player on the server. Note: they will still be able to chat using `/me` or `/say` (if they know about it).
 ### unmute
@@ -46,6 +53,10 @@ get a player's location. Its dimension is shown by a block image (dirt for overw
 * username
 
 visualize player inventory's content
+### stats
+* username
+
+Get many useful info about a player: nametag, gamemode, level, health, isOp, location, spawn, join date, tags, scoreboard scores.
 ### kill
 * username
 
@@ -86,49 +97,50 @@ Current status of the server (starting, online, sleeping, offline)
 * value: accepts `on` or `off`
 
 ## Config options
-You can customize some functionalities of the pack from the following folder `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/variables.json`. *Note:changes to these settings will become effective only after server restart*.
+You can customize some functionalities of the pack from the following folder `<server-main-folder>/config/54d46e5d-b8c7-486f-8957-f83982bdfc2f/variables.json`. 
+
+*Note: changes to these settings will become effective only after server restart*.
+
+*Note: You don't need to use config setup. You can now also use ingame setup.*
 
 ### prefix
 * option: char (any single character)
 
 Bedrock commands prefix, default value is `!`, and you can change it to whatever you prefer (some commonly used options are e.g. `.` and  `?`)
 
-### mute_capability
-* option: boolean (true/false)
-
-This option enables/disables the discord command [`/mute`](DOCS.MD#mute)
-
-### ban_capability
-* option: boolean (true/false)
-
-This option enables/disables the discord command [`/ban`](DOCS.MD#ban)
-
-### proximity_chat
-* option: boolean (true/false)
-
-This option enables/disables the proximity chat. What's that? Proximity chat will allow players to send regular messages **only** to players within a certain radiusfrom them: people will be able to communicate only if they are close one to another, which is a nice thing for servers where people should interact.
-
-### proximity_distance
-* number
-
-If proximity chat is enabled this option will set how many blocks away players can be in order to receive other players messages.
- 
 ### discord_link
 * boolean (true/false)
 
 Allow people to have their discord-pfp and discord-name displayed in discord when they write in chat (instead of xbox pfp, and nametag). You may want to disable this if people are using it in order to trick your mods. 
+
+### output
+* integer
+
+You can select the type of event display you prefer on discord. Available options are:
+* 0: standard 
+* 1: legacy
+
+Standard output uses embeds for all events (playerDeath, join, leavel...) while legacy output display all event as plain text messages. You may want to switch to legacy if discord chat is being filled with event messages.
 
 ### startup_notify
 * boolean (true/false)
 
 Get a notification every time your server starts (actually when the script is started).
 
-### origin
+### origin (optional)
 * domain (e.g. `myserver.aternos.me`)
 
 This option is dedicated to people running a server on free hosting companies, or people who have to change server-address very often. This option will keep your token valid even if you are connecting from a different server-address, as long as the domain you added here is pointing to that origin.
  
-## Customise.js
+## BridgeAPI
+Since BedrockBridge v1.3.0 it's possible modify BedrockBridge addon through  custom api which is documented [here](https://github.com/InnateAlpaca/BedrockBridge/blob/main/docs/bridgeAPI/esploratori_bridge.md).
+
+Bridge addons must be added to the folder `/Bedrock-Bridge/scripts/bridgePlugins`. Also in order to install it add an import statement inside `index.js`, as you can see in the examples.
+
+You can find several examples of bridge-addons in (here)[https://github.com/InnateAlpaca/BedrockBridge/tree/main/bridge_plugins].
+
+## Customise.js (Old bridge scripting API)
+If you are running a bridge version older than 1.3.0, you may be interested in this section where you can go through the earlier mod capabilities of bedrockbridge.
 Customise.js is a file inside `BedrockBridge/scripts` folder. Modifying it you can change BedrockBridge behaviour, develop plugins for the bot and share them!
 
 ### chat-stream functions
