@@ -2,10 +2,9 @@
 	"prefix": "!",
 
 	"discord_link": true,
-	"startup_notify": false,
 
 	"mute_capability": true,
 	"ban_capability": true,
-	"proximity_chat": false,
-	"proximity_distance": 100
+	"startup_notify": true,
+	"output": 0
 }

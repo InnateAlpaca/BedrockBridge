@@ -2,6 +2,7 @@
   "allowed_modules": [
     "@minecraft/server",
     "@minecraft/server-admin",
-	"@minecraft/server-net"
+	  "@minecraft/server-net",
+    "@minecraft/server-ui"
   ]
 }

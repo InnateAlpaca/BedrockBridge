@@ -4,7 +4,7 @@
  * This bridge-addon provides BedrockBRidge with better message parsing between discord and bedrock. 
  * It will translate message formatting codes as much as possible, handle roles, channels, users, emojis...
  */
-import { bridge } from '../addons';
+import { bridge } from '../../addons';
 
 // bridge.events.bridgeInitialize.subscribe(e=>{
 //     // This request is needed to retrieve discord role names, otherwise they won't be sent.
