@@ -7,7 +7,7 @@ A class that contains all useful tools for BedrockBridge
 ### **discordCommands**
 `read-only discordCommands: bridgeCommands;`
 
-Contains a set of events that are applicable to the entirety of the world.  Event callbacks are called in a deferred manner. Event callbacks are executed in read-write mode.
+Handler for commands that can be run from discord with /command. By default any command can be run, here you can handle whitelist or blacklist for them.
 
 Type: [*bridgeCommands*](bridgeCommands.md)
 
