@@ -30,12 +30,11 @@ Don't forget to check our [YouTube](https://www.youtube.com/@Esploratori-Develop
 
 **If the messages are not streamed and your server is connected, give the bot admin permissions, then run `/setup`.** Successful setup is needed in order to stream chat. If you need help don't hesitate to contact staff on the official discord server.
 ### Bedrock setup
-4. [Download](https://github.com/InnateAlpaca/BedrockBridge/releases/latest) BedrockBridge addon.
-5. **Enable** experimental features (now called **beta API**) on your world ([*yt*](https://youtu.be/10auxMSfVt8?t=97)).
-6. Upload the folder called `Bedrock-Bridge` inside your server's `<server main folder>/behaviour_packs folder` ([*yt*](https://youtu.be/10auxMSfVt8?t=206)).
-7. Go to `<server main folder>/worlds/<your world's name>/world_behavior_packs.json` and add the following line: `{ "pack_id" : "b17755d2-3cc0-424b-89dd-558fc98513f5", "version" : [ 0, 0, 1 ]}` (between the square brackets you find already there) ([*yt*](https://youtu.be/10auxMSfVt8?t=257))
-8. Go to `<server main folder>/config` and paste the folder (from the downloaded pack) `config/b17755d2-3cc0-424b-89dd-558fc98513f5` ([*yt*](https://youtu.be/10auxMSfVt8?t=330))
-9. Now copy your token (from step 3) and paste it to `<server main folder>/config/b17755d2-3cc0-424b-89dd-558fc98513f5/secrets.json` replacing the 0 valued token.
-10. Start your server and enjoy streamed chat and [commands](https://www.youtube.com/watch?v=z4hX4c2QNjI)!
+4. [Download](https://raw.githubusercontent.com/InnateAlpaca/BedrockBridge/main/Bedrock-Bridge.mcaddon) BedrockBridge addon.
+5. Install BedrockBridge addon on your world, making sure to enable experiments (**beta API**).
+6. Upload the world back to your server.
+7. Start your server, join the game, and run `/scriptevent esploratori:setup`. Now fill the form. 
+
+*Note: If you are not op or if cheats are disabled, in order to open the setup form please run the following command in server-console while you are connected to the server: `execute as <your username> run scriptevent esploratori:setup` (e.g. `execute as InnateAlpaca run scriptevent esploratori:setup`). Now close the chat and fill the form.*
 
 *Check the [documents](DOCS.MD) in order to see what commands you can run form discord, and enjoy!!*
