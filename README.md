@@ -31,11 +31,12 @@ Don't forget to check our [YouTube](https://www.youtube.com/@Esploratori-Develop
 **If the messages are not streamed and your server is connected, give the bot admin permissions, then run `/setup`.** Successful setup is needed in order to stream chat. If you need help don't hesitate to contact staff on the official discord server.
 ### Bedrock setup
 4. [Download](https://raw.githubusercontent.com/InnateAlpaca/BedrockBridge/main/Bedrock-Bridge.mcaddon) BedrockBridge addon.
-5. Install BedrockBridge addon on your world, making sure to enable experiments (**beta API**).
+5. Install BedrockBridge addon on your world, making sure to enable experiments (**beta API**) and ignore console error logs[^1].
 6. Upload the world back to your server.
 7. Navigate to `<main folder>/config/default` and open `permissions.json`. Add the following line to the file `"@minecraft/server-net"` making sure that it respects JSON format. You can use [this tool](https://jsonchecker.com/) to verify if the modified file is valid.
 8. Start your server, join the game, and run `/scriptevent esploratori:setup`. Now fill the form. 
 
 *Note: If you are not op or if cheats are disabled, in order to open the setup form please run the following command in server-console while you are connected to the server: `execute as <your username> run scriptevent esploratori:setup` (e.g. `execute as InnateAlpaca run scriptevent esploratori:setup`). Now close the chat and fill the form.*
+[^1]: The error is caused by usage of modules that are server-only and can't be used in single world. The world will have no issue when running on a server.
 
 *Check the [documents](DOCS.MD) in order to see what commands you can run form discord, and enjoy!!*
