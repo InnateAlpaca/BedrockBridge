@@ -33,7 +33,8 @@ Don't forget to check our [YouTube](https://www.youtube.com/@Esploratori-Develop
 4. [Download](https://raw.githubusercontent.com/InnateAlpaca/BedrockBridge/main/Bedrock-Bridge.mcaddon) BedrockBridge addon.
 5. Install BedrockBridge addon on your world, making sure to enable experiments (**beta API**).
 6. Upload the world back to your server.
-7. Start your server, join the game, and run `/scriptevent esploratori:setup`. Now fill the form. 
+7. Navigate to `<main folder>/config/default` and open `permissions.json`. Add the following line to the file `"@minecraft/server-net"` making sure that it respects JSON format. You can use [this tool](https://jsonchecker.com/) to verify if the modified file is valid.
+8. Start your server, join the game, and run `/scriptevent esploratori:setup`. Now fill the form. 
 
 *Note: If you are not op or if cheats are disabled, in order to open the setup form please run the following command in server-console while you are connected to the server: `execute as <your username> run scriptevent esploratori:setup` (e.g. `execute as InnateAlpaca run scriptevent esploratori:setup`). Now close the chat and fill the form.*
 
