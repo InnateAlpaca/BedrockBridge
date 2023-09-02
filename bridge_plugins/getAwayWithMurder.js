@@ -1,8 +1,10 @@
 import {bridge} from '../addons'
 
 /**
- * Get Away With Murder BedrockBridge addon
+ * Get Away With Murder - BedrockBridge addon
  * This Addons doesn't report to discord people with the tag "gawm" (Get Away With Murder)
+ * 
+ * by InnateAlpaca (https://github.com/InnateAlpaca)
  */
 
 bridge.events.playerDieLog.subscribe((e, deadDude, damage)=>{

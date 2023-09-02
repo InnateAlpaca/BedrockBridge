@@ -3,6 +3,8 @@
  * 
  * This bridge-addon provides some useful ingame additional prefix-commands. This is mainly meant as an example for you to make more!
  * Once you register a command you will be able to visualise it from !help along with the other bridge commands
+ * 
+ * by InnateAlpaca (https://github.com/InnateAlpaca)
  */
 
 import { system, Player } from '@minecraft/server';
