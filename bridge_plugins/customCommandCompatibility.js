@@ -11,7 +11,7 @@ const ignore_prefixes = ["?"]
 // const ignore_prefixes = ["?", ".", "!"] // multiple prefixes are possible too. Feel free to edit it!
 
 bridge.events.chatUpStream.subscribe(e=>{
-    if (ignore_prefixes.includes(e.message.at(0))){
+    if (ignore_prefixes.includes(e.message.charAt(0))){
         e.cancel=true;
     }
 })

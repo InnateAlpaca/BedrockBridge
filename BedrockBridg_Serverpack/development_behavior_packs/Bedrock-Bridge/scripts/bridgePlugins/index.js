@@ -7,3 +7,6 @@
  */
 
 import './basicNicerChat/basicNicerChat'
+import './deathCounter'
+import './getAwayWithMurder'
+import './playtime'
