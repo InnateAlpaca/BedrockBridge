@@ -1,11 +1,10 @@
 /**
  * bedrockForever - BedrockBridge Plugin
  * 
- * This bridge plugin will modify discord chat so that only bedrock nametag will be displayed for all events and chat.
- * E.g. if a player sends a message, the author of the message displayed will be the nametag of the player (and not the username).
- * You can modify the nametags of players by running /rename
- * Note: despite it will make chat look better, it may make hard to run commands as to run commands you need as always the username, 
- * and not the nametag.
+ * This bridge plugin will alter Discord chat to exclusively show the bedrock nametags for all events and chat interactions. 
+ * For example, when a player sends a message, the displayed author will be their nametag, not their username. 
+ * You can adjust player nametags using the /rename command. However, please note that while this enhances the chat's appearance, 
+ * it may complicate command execution since you will always need to use the username, not the nametag, when running commands.
  * 
  * by InnateAlpaca (https://github.com/InnateAlpaca) 
  */
