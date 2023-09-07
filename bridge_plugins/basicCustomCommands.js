@@ -7,7 +7,7 @@
  * by InnateAlpaca (https://github.com/InnateAlpaca)
  */
 
-import { system, Player } from '@minecraft/server';
+import { system, Player, EffectTypes, GameMode } from '@minecraft/server';
 import { bridge } from '../addons';
 
 
@@ -57,4 +57,45 @@ bridge.bedrockCommands.registerCommand("mute", (user, target, time)=>{
     else { //he didn't say the nametag
         user.sendMessage("§ctarget player not found. Make sure to use a valid nametag when you run this command.");
     }    
-}, "mute a target palyer for a specified amount of time. Usage: tp <username> <time>");
+}, "mute a target player for a specified amount of time. Usage: tp <username> <time?>");
+
+
+// Ideated by PoWeROffAPT
+bridge.bedrockCommands.registerCommand("heal", (user, target) => {
+    if (!user.hasTag(admin_role)) {
+        user.sendMessage("§cYou are not allowed to run this command.");
+        return;
+    }
+
+    const target_player = target?.readPlayer();
+    if (target_player){
+        target_player.getEffects().forEach(e=>{
+            // removing all effects from the player
+            target_player.removeEffect(e.typeId);
+        })
+        system.run(()=>{
+            target_player.getComponent("health").resetToMaxValue();
+        })        
+        target_player.sendMessage("§aYou have been healed by an admin.");
+    } else {
+        user.sendMessage("§cTarget player not found. Make sure to use a valid username when you run this command.");
+    }
+}, "heal a target player. Usage: heal <username>");
+
+// Ideated by PoWeROffAPT
+bridge.bedrockCommands.registerCommand("gamemode", async(user, target, mode) => {
+    if (!user.hasTag(admin_role)) {
+        user.sendMessage("§cYou are not allowed to run this command.");
+        return;
+    }
+
+    const target_player = target?.readPlayer();
+    if (mode.toString() in GameMode && target_player){
+        await target_player.runCommandAsync(`gamemode ${mode} @s`);
+        target_player.sendMessage(`§aYour gamemode has been changed to ${mode} by an admin.`);
+        user.sendMessage("§eCommand succefully executed.");
+    }
+    else {
+        user.sendMessage("§eMissing parameter. Usage: gamemode <username> <gamemode>");
+    }
+}, "set gamemode for a target player. Usage: gamemode <username> <gamemode> (e.g. §ogamemode dude12 survival)");

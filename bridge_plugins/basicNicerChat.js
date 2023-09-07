@@ -1,7 +1,7 @@
 /**
  * Basic Nicer Chat - BedrockBridge addon
  * 
- * This bridge-addon provides BedrockBRidge with better message parsing between discord and bedrock. 
+ * This bridge-addon provides BedrockBridge with better message parsing between discord and bedrock. 
  * It will translate message formatting codes as much as possible, handle roles, channels, users, emojis...
  * 
  * by InnateAlpaca (https://github.com/InnateAlpaca)

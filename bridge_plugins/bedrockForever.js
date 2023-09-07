@@ -26,21 +26,21 @@ bridge.events.playerJoinLog.subscribe(async(e, player)=>{
     e.user=player.nameTag.toDiscord();
 })
 
-bridge.events.playerLeaveLog.subscribe(async(e, player)=>{
-    e.user=player.nameTag.toDiscord();
-})
+// bridge.events.playerLeaveLog.subscribe(async(e, player)=>{
+//     e.user=player.nameTag.toDiscord();
+// })
 
 bridge.events.petDieLog.subscribe(async(e, pet, damage)=>{
     if (damage.damagingEntity instanceof(Player))
         e.message=e.message.replace(damage.damagingEntity.name, damage.damagingEntity.nameTag.toDiscord());
 })
 
-world.beforeEvents.chatSend.subscribe(e=>{
-    // you may want to comment this whole thing as it may interfere with other addons. 
-    // This is most definitely not compatible with other chat-ranks
-    if (e.sender.nameTag!==e.sender.name){
-        e.cancel=true;
-        world.sendMessage(`<${e.sender.nameTag}§r> ${e.message}`);
-    }    
-})
+// world.beforeEvents.chatSend.subscribe(e=>{
+//     // you may want to comment this whole thing as it may interfere with other addons. 
+//     // This is most definitely not compatible with other chat-ranks
+//     if (e.sender.nameTag!==e.sender.name){
+//         e.cancel=true;
+//         world.sendMessage(`<${e.sender.nameTag}§r> ${e.message}`);
+//     }    
+// })
 
