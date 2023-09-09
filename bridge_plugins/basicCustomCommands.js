@@ -1,5 +1,5 @@
 /**
- * Basic Custom Commands (basicCustomCommands) - BedrockBridge Plugin
+ * Basic Custom Commands (basicCustomCommands) v1.0.3 - BedrockBridge Plugin
  * 
  * This bridge-addon provides some useful ingame additional prefix-commands. This is mainly meant as an example for you to make more!
  * Once you register a command you will be able to visualise it from !help along with the other bridge commands
@@ -7,18 +7,19 @@
  * by InnateAlpaca (https://github.com/InnateAlpaca)
  */
 
-import { system, Player, EffectTypes, GameMode } from '@minecraft/server';
+import { system, GameMode, world, Vector } from '@minecraft/server';
 import { bridge } from '../addons';
 
-
-const admin_role = "admin";
-
+const tags = {
+    admin: "admin", 
+    member: "member"
+}
 
 // You can see the structure: 1) name of command, 2) callback run when the command is used (and you get 
 // the player who ran the command, and all parameters already split even with quotes) and 3) description
 // which will be visualised when a player runs !help
 bridge.bedrockCommands.registerCommand("tp", (user, target)=>{
-    if (!user.hasTag(admin_role)){
+    if (!user.hasTag(tags.admin)){
         user.sendMessage("§cYou are not allowed to run this command.");
         return;
     }
@@ -33,7 +34,7 @@ bridge.bedrockCommands.registerCommand("tp", (user, target)=>{
 
 
 bridge.bedrockCommands.registerCommand("mute", (user, target, time)=>{
-    if (!user.hasTag(admin_role)){
+    if (!user.hasTag(tags.admin)){
         user.sendMessage("§cYou are not allowed to run this command.");
         return;
     }
@@ -62,7 +63,7 @@ bridge.bedrockCommands.registerCommand("mute", (user, target, time)=>{
 
 // Ideated by PoWeROffAPT
 bridge.bedrockCommands.registerCommand("heal", (user, target) => {
-    if (!user.hasTag(admin_role)) {
+    if (!user.hasTag(tags.admin)) {
         user.sendMessage("§cYou are not allowed to run this command.");
         return;
     }
@@ -84,7 +85,7 @@ bridge.bedrockCommands.registerCommand("heal", (user, target) => {
 
 // Ideated by PoWeROffAPT
 bridge.bedrockCommands.registerCommand("gamemode", async(user, target, mode) => {
-    if (!user.hasTag(admin_role)) {
+    if (!user.hasTag(tags.admin)) {
         user.sendMessage("§cYou are not allowed to run this command.");
         return;
     }
@@ -99,3 +100,28 @@ bridge.bedrockCommands.registerCommand("gamemode", async(user, target, mode) => 
         user.sendMessage("§eMissing parameter. Usage: gamemode <username> <gamemode>");
     }
 }, "set gamemode for a target player. Usage: gamemode <username> <gamemode> (e.g. §ogamemode dude12 survival)");
+
+const die_score_names = {x: "esploratori:die_loc_x", y: "esploratori:die_loc_y", z: "esploratori:die_loc_z"};
+const die_loc_x = world.scoreboard.getObjective(die_score_names.x)??world.scoreboard.addObjective(die_score_names.x, "player death x");
+const die_loc_y = world.scoreboard.getObjective(die_score_names.y)??world.scoreboard.addObjective(die_score_names.y, "player death y");
+const die_loc_z = world.scoreboard.getObjective(die_score_names.z)??world.scoreboard.addObjective(die_score_names.z, "player death z");
+
+bridge.events.playerDieLog.subscribe((e, player)=>{
+    if (player.isValid()){
+        die_loc_x.setScore(player, player.location.x);
+        die_loc_y.setScore(player, player.location.y);
+        die_loc_z.setScore(player, player.location.z);
+    }   
+})
+bridge.bedrockCommands.registerCommand("back", (player)=>{
+    if (!player.hasTag(tags.admin)&&!player.hasTag(tags.member)) return;
+    if (player.scoreboardIdentity && die_loc_x.hasParticipant(player.scoreboardIdentity)){ //we check just one, no need for the whole 3 as they are set together
+        system.run(()=>{
+            player.teleport(new Vector(die_loc_x.getScore(player.scoreboardIdentity), die_loc_y.getScore(player.scoreboardIdentity), die_loc_z.getScore(player.scoreboardIdentity)));
+            player.sendMessage("§eYou have been teleported to the last available death location.")
+        })
+    }
+    else{
+        player.sendMessage("§cTeleport was not possible: last death location is not available.");
+    }
+}, "teleport players to the last place where they died, if available.")
