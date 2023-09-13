@@ -70,11 +70,11 @@ bridge.bedrockCommands.registerCommand("heal", (user, target) => {
 
     const target_player = target?.readPlayer();
     if (target_player){
-        target_player.getEffects().forEach(e=>{
-            // removing all effects from the player
-            target_player.removeEffect(e.typeId);
-        })
         system.run(()=>{
+            target_player.getEffects().forEach(e=>{
+                // removing all effects from the player
+                target_player.removeEffect(e.typeId);
+            })
             target_player.getComponent("health").resetToMaxValue();
         })        
         target_player.sendMessage("§aYou have been healed by an admin.");
