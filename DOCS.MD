@@ -140,7 +140,7 @@ Since BedrockBridge v1.3.0 it's possible modify BedrockBridge addon through  cus
 
 Bridge addons must be added to the folder `/Bedrock-Bridge/scripts/bridgePlugins`. Also in order to install it add an import statement inside `index.js`, as you can see in the examples.
 
-You can find several examples of bridge-addons in (here)[https://github.com/InnateAlpaca/BedrockBridge/tree/main/bridge_plugins].
+You can find several examples of bridge-addons in [here](https://github.com/InnateAlpaca/BedrockBridge/tree/main/bridge_plugins).
 
 ## Customise.js (Old bridge scripting API)
 If you are running a bridge version older than 1.3.0, you may be interested in this section where you can go through the earlier mod capabilities of bedrockbridge.
