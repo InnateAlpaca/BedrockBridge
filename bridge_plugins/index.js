@@ -15,3 +15,4 @@ import './playtime'
 import './basicCustomCommands'
 import './bedrockForever'
 import "./basicWarps/main"
+import "./TPS"

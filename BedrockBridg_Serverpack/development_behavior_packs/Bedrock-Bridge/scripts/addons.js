@@ -63,8 +63,11 @@ import * as mc from "@minecraft/server";
  * @typedef playerLeaveLogEvent
  * @property {string} user username of the player logging off
  * @property {boolean} cancel if true the embed won't be sent 
+ * @typedef gonePlayerObject
+ * @property {string} name username of the player
+ * @property {string} id entityId of the player
  * @typedef playerLeaveLogEventSignal
- * @property {(callback:(arg: playerLeaveLogEvent, player: Player)=>void)=>(arg: playerLeaveLogEvent)=>void} subscribe register a new callback for this event. Warning: the player instance might be stale.
+ * @property {(callback:(arg: playerLeaveLogEvent, player: gonePlayerObject)=>void)=>(arg: playerLeaveLogEvent)=>void} subscribe register a new callback for this event. Warning: the player instance might be stale.
  * @property {(callback:(arg: playerLeaveLogEvent)=>void)=>void} unsubscribe remove the callback for this events.
  * 
  * @typedef playerDieLogEvent
