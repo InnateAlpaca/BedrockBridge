@@ -1,5 +1,5 @@
 /**
- * TPS (Ticks Per Second) v1.0.0 - BedrockBridge Plugin
+ * TPS (Ticks Per Second) v1.0.1 - BedrockBridge Plugin
  * 
  * This bridge-addon adds a useful command to check TPS.
  * 
@@ -56,9 +56,11 @@ bridge.bedrockCommands.registerCommand("hideServerStats", (user)=>{
 
 var tps = 20;
 var last_check = Date.now();
+var last_tick = system.currentTick;
 
 system.runInterval(()=>{
-    tps = 1000*interval/(Date.now()-last_check);
+    tps = 1000*(system.currentTick-last_tick)/(Date.now()-last_check);
     last_check = Date.now();
+    last_tick = system.currentTick;
     TPSscoreboard.setScore("TPS", tps);
 }, interval)
