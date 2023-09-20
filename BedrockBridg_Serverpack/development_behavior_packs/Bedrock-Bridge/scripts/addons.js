@@ -69,7 +69,7 @@ import * as mc from "@minecraft/server";
  * @typedef playerLeaveLogEventSignal
  * @property {(callback:(arg: playerLeaveLogEvent, player: gonePlayerObject)=>void)=>(arg: playerLeaveLogEvent)=>void} subscribe register a new callback for this event. Warning: the player instance might be stale.
  * @property {(callback:(arg: playerLeaveLogEvent)=>void)=>void} unsubscribe remove the callback for this events.
- * 
+ *
  * @typedef playerDieLogEvent
  * @property {string} message message displayed as the player dies. It can be re-edited
  * @property {boolean} cancel if true the embed won't be sent 
@@ -210,6 +210,29 @@ class bedrockCommands {
      * @param {string?} description add a description that will be shown when players run "help" command.
      */
     registerCommand(name, callback, description){ /** function body */ }
+
+    /**
+     * Register a command that can be run only by players with an "admin" tag.
+     * @param {string} name
+     * @param {(player: Player, ...params: commandArgument[])=>void} callback callback called on command run.
+     * @param {string?} description add a description that will be shown when players run "help" command.
+     */
+    registerAdminCommand(name, callback, description){ /** function body */ }
+
+    /**
+     * Register a command that can be run only by players with a specific tag.
+     * @param {string} name
+     * @param {(player: Player, ...params: commandArgument[])=>void} callback callback called on command run.
+     * @param {string} description add a description that will be shown when players run "help" command.
+     * @param {string[]} tags list of tags which will allow players to run this command.
+     */
+    registerTagCommand(name, callback, description, ...tags){ /** function body */ }
+
+    /**
+     * Prefix for Bridge commands, as selected in bridge-settings.
+     * @type {string} @readonly
+     */
+    prefix
 }
 
 export class WorldBridge {
