@@ -36,6 +36,7 @@ The `esploratori/bridgeAPI` module contains resources for customising and enhanc
   
 ### **bridge**
 `static read-only bridge: WorldBridge;`
+Type: [*WorldBridge*](WorldBridge.md)
 
 ## Extensions
 Some native js types have been extended, here's a list of the changes.
@@ -50,5 +51,3 @@ Some native js types have been extended, here's a list of the changes.
 - dcNametag
 ### Array
 - includesAll()
-
-Type: [*WorldBridge*](WorldBridge.md)
