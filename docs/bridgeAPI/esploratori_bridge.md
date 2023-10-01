@@ -37,4 +37,18 @@ The `esploratori/bridgeAPI` module contains resources for customising and enhanc
 ### **bridge**
 `static read-only bridge: WorldBridge;`
 
+## Extensions
+Some native js types have been extended, here's a list of the changes.
+### String
+- toBedrock()
+- toDiscord()
+### Player
+- mute()
+- unmute()
+- muted
+- deaf
+- dcNametag
+### Array
+- includesAll()
+
 Type: [*WorldBridge*](WorldBridge.md)
