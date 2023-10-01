@@ -36,6 +36,7 @@ The `esploratori/bridgeAPI` module contains resources for customising and enhanc
   
 ### **bridge**
 `static read-only bridge: WorldBridge;`
+
 Type: [*WorldBridge*](WorldBridge.md)
 
 ## Extensions
