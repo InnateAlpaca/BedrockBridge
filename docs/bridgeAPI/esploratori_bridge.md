@@ -32,6 +32,7 @@ The `esploratori/bridgeAPI` module contains resources for customising and enhanc
 - chatUpStreamEventSignal
 - bridgeInitializeEvent
 - bridgeInitializeEventSignal
+- gonePlayerObject
 ## Objects
   
 ### **bridge**
