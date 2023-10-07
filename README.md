@@ -41,3 +41,11 @@ Don't forget to check our [YouTube](https://www.youtube.com/@Esploratori-Develop
 [^2]: You can use [this tool](https://jsonchecker.com/) to verify if the modified file is valid, if it's invalid you are most surely missing some comma or quote.
 
 *Check the [documents](DOCS.MD) in order to see what commands you can run form discord, and enjoy!!*
+
+### Aternos
+**New Installation for Aternos users** (since bridge 1.3.0)
+* drop the .mcaddon pack into `Menu>Files>packs`
+* enable `Worlds>Options>Beta API`
+* start the server, go online, and run `/scriptevent esploratori:setup`. *Note: you **must** fill the `origin` parameter*
+
+If you have problems you can refer to the new [youtube tutorial](https://youtu.be/1NTrhmW43eE), *Part IV* chapter.
