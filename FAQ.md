@@ -25,8 +25,8 @@ If you are still having troubles don't hesitate to **contact us** on the [offici
 ### It doesn't work since February 2024!
 Hello if you are having connection issues and error logs on your screen, that's because we updated the discord bot address. So all older packs won't be able to connect to it anymore. *How should I fix it?*
 * If you are running the **latest** version of minecraft bedrock edition you can just install the newer version we released. Or override the `main.js` (from the addon files) with the new one.
-* If you are runnind an older version of BedrockBridge (v1.3.4 or lower) you need to manually fix it, as we won't release an official fix for them.
-  - go in the bot files and find  `main.js` 
+* If you are running an older version of BedrockBridge (v1.3.4 or lower) you need to manually fix it, as we won't release an official fix for them.
+  - go in the addon files and find `main.js` 
   - Open it and find the string `ismp.space` (you can use *CTRL+F*)
   - Now replace it with `i.space`
 
