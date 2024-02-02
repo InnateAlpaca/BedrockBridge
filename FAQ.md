@@ -22,6 +22,15 @@ If you are still having troubles don't hesitate to **contact us** on the [offici
 
 *Note: Github tickets will typically take longer to be addressed than discord reports.*
 
+### It doesn't work since February 2024!
+Hello if you are having connection issues and error logs on your screen, that's because we updated the discord bot address. So all older packs won't be able to connect to it anymore. *How should I fix it?*
+* If you are running the **latest** version of minecraft bedrock edition you can just install the newer version we released. Or override the `main.js` (from the addon files) with the new one.
+* If you are runnind an older version of BedrockBridge (v1.3.4 or lower) you need to manually fix it, as we won't release an official fix for them.
+  - go in the bot files and find  `main.js` 
+  - Open it and find the string `ismp.space` (you can use *CTRL+F*)
+  - Now replace it with `i.space`
+
+
 ### How is it possible that everyone can run all commands??
 Yes, some bots let you choose what roles can run certain commands, why does this bot not do it? well because discord already allows you to do that natively! 
 
