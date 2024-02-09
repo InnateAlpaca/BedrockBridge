@@ -3,8 +3,6 @@
  * 
  * This bridge plugin lets you inquiry the distance a player has been walking on a server.
  * It handles info as scoreboard, so you can gather it from discord by running /stats.
- * You have two scoreboards: one for session time (in minutes), the other for overall time (in minutes). 
- * The latter is updated when the player leaves the server, while the first is updated each minute.
  * 
  * by InnateAlpaca (https://github.com/InnateAlpaca) 
  */
