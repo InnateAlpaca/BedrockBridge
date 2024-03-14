@@ -1,4 +1,4 @@
-Chat Rank - Bridge Plugin v1.0.0
+Chat Rank - Bridge Plugin v1.1.0
 
 In order to install this bridge-plugin do the following:
 - Paste this folder inside "behavior_packs/Bedrock-Bridge/scripts/bridgePlugins" 

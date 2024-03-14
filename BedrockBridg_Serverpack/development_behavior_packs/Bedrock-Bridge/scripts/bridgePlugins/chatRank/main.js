@@ -1,5 +1,6 @@
 /**
- * Esploratori Chat Rank for BedrockBridge v1.0.0
+ * Esploratori Chat Rank for BedrockBridge
+ * @version 1.1.0
  * 
  * This bridge-plugin will transform your bedrock chat letting you use chatranks! ranks are set simply by adding a tag starting with "rank:".
  * You can optionally setup a few rank-tags from settings.js where you can just use the color you want for the rank, and then assign them 
@@ -19,7 +20,7 @@ import { colors } from './data/colors';
 const [t1, t2, t3, t4] = settings.template.split('%');
 
 world.beforeEvents.chatSend.subscribe(e=>{
-    if (settings.ignore_prefixes.includes(e.message.charAt(0))) return;
+    if (e.message.startsWith(bridge.bedrockCommands.prefix) || settings.ignore_prefixes.includes(e.message.charAt(0))) return;
 
     if (settings.change_nametags && settings.use_nametags){
         world.sendMessage(e.sender.nameTag + t3 + e.message + t4);
@@ -65,11 +66,7 @@ bridge.events.chatUpStream.subscribe((e, player)=>{
     
 })
 
-bridge.bedrockCommands.registerCommand("addTag", (player, user, role)=>{
-    if (!player.hasTag(settings.admin_tag)){
-        player.sendMessage("§cYou cannot run this command."); return;
-    }
-
+bridge.bedrockCommands.registerAdminCommand("addTag", (player, user, role)=>{
     const target = user.readPlayer();
     if (target && role in settings.roles){
         system.run(()=>{
