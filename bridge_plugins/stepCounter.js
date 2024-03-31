@@ -27,7 +27,6 @@ system.runInterval(()=>{
         if (player_dimensions.get(player.id)===player.dimension.id){
             const dist = Vector.distance(player.location, player_locations.get(player.id));
             stepScoreboard.addScore(player, Math.ceil(dist));
-            world.sendMessage(dist.toString())
         }
         else { // if dimension changes don't update the steps
             player_dimensions.set(player.id, player.dimension.id);
