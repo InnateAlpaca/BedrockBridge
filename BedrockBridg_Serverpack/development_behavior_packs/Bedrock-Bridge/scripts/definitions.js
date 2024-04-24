@@ -18,8 +18,7 @@
  * Uniquely use this tool for bridge-plugins. If you wish to include part of this code in
  * your own addons ask BedrockBridge developers https://bedrockbridge.esploratori.space/Contact.html.
  * 
- * Donations (starting at 5$) are welcome in https://www.gofundme.com/f/bedrockbridge-v20
- * If you wish to order a personalised addon you can do that at https://www.fiverr.com/s/XxEKo2
+ * Donations are welcome in https://www.gofundme.com/f/bedrockbridge-v20
  */
 
 import * as mc from "@minecraft/server";
