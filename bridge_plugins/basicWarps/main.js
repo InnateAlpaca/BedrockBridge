@@ -14,12 +14,14 @@
  */
 
 import { bridge } from '../../addons';
-import { system, world, MinecraftDimensionTypes, Vector } from '@minecraft/server';
+import { system, world, MinecraftDimensionTypes } from '@minecraft/server';
+// import { MinecraftDimensionTypes } from "@minecraft/vanilla-data";
 import { warps } from './warps';
 import { options } from './options';
 
 const player_cooldown = new Map() // for warp command in general
 
+/**@typedef  @type */
 const dimensions = {}
 for (const dim in MinecraftDimensionTypes){
     dimensions[dim] = world.getDimension(MinecraftDimensionTypes[dim]);
@@ -39,14 +41,16 @@ bridge.bedrockCommands.registerCommand("spawn", async (user)=>{
     }
     const message = await new Promise(acc=>{
         system.run(()=>{
-            if (user.getSpawnPoint()){
-                const {dimension, ...user_location} = user.getSpawnPoint();
+            const spawn = user.getSpawnPoint();
+            if (spawn){
+                const {dimension, ...user_location} = spawn;
                 user.teleport(user_location, {"dimension": dimension});
                 acc("§eYou have been teleported to your spawn point.");
             }
             else {
+                
                 const {x, z} = world.getDefaultSpawnLocation()
-                const location = dimensions.overworld.getBlockFromRay(new Vector(x, 400, z), Vector.down, {maxDistance: 500})?.block.location;
+                const location = dimensions.overworld.getBlockFromRay({x: x, y: 400, z: z}, {x: 0, y: 0, z: -1}, {maxDistance: 500})?.block.location;
                 if (location){
                     user.teleport(location, {"dimension": dimensions.overworld});
                     acc("§eYou have been teleported to your spawn point.");
@@ -80,7 +84,7 @@ bridge.bedrockCommands.registerCommand("warp", (user, warp_name)=>{
     if (warp_name in warps){
         system.run(()=>{
             const [x, y, z, dimensionId] = warps[warp_name];
-            user.teleport(new Vector(x, y, z), {dimension: dimensions[dimensionId]});
+            user.teleport({x: x, y: y, z: z}, {dimension: dimensions[dimensionId]});
         })
         user.sendMessage(`§eYou have been teleported to "${warp_name}".`);
     }
