@@ -3,13 +3,19 @@
  * 
  * This bridge plugin lets you inquiry the distance a player has been walking on a server.
  * It handles info as scoreboard, so you can gather it from discord by running /stats.
+ * You have two scoreboards: one for session time (in minutes), the other for overall time (in minutes). 
+ * The latter is updated when the player leaves the server, while the first is updated each minute.
  * 
  * by InnateAlpaca (https://github.com/InnateAlpaca) 
  */
 
 
 import { bridge } from "../addons";
-import { world, system, Vector } from "@minecraft/server";
+import { world, system } from "@minecraft/server";
+
+function distance(v1, v2){// Vector mock as @minecraft/math requires manifest change
+    return Math.sqrt((v1.x-v2.x)**2+(v1.y+v2.y)**2+(v1.z+v2.z)**2);
+}
 
 const stepScoreboard = world.scoreboard.getObjective("esploratori:steps")??world.scoreboard.addObjective("esploratori:steps", "steps");
 
@@ -23,9 +29,8 @@ const player_dimensions = new Map();
 system.runInterval(()=>{
     for (const player of world.getAllPlayers()){
         if (player_dimensions.get(player.id)===player.dimension.id){
-            const dist = Vector.distance(player.location, player_locations.get(player.id));
+            const dist = distance(player.location, player_locations.get(player.id));
             stepScoreboard.addScore(player, Math.ceil(dist));
-            world.sendMessage(dist.toString())
         }
         else { // if dimension changes don't update the steps
             player_dimensions.set(player.id, player.dimension.id);

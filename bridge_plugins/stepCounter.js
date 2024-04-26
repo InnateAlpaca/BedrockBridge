@@ -11,7 +11,11 @@
 
 
 import { bridge } from "../addons";
-import { world, system, Vector } from "@minecraft/server";
+import { world, system } from "@minecraft/server";
+
+function distance(v1, v2){// Vector mock as @minecraft/math requires manifest change
+    return Math.sqrt((v1.x-v2.x)**2+(v1.y+v2.y)**2+(v1.z+v2.z)**2);
+}
 
 const stepScoreboard = world.scoreboard.getObjective("esploratori:steps")??world.scoreboard.addObjective("esploratori:steps", "steps");
 
@@ -25,7 +29,7 @@ const player_dimensions = new Map();
 system.runInterval(()=>{
     for (const player of world.getAllPlayers()){
         if (player_dimensions.get(player.id)===player.dimension.id){
-            const dist = Vector.distance(player.location, player_locations.get(player.id));
+            const dist = distance(player.location, player_locations.get(player.id));
             stepScoreboard.addScore(player, Math.ceil(dist));
         }
         else { // if dimension changes don't update the steps

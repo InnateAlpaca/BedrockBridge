@@ -7,7 +7,7 @@
  * by InnateAlpaca (https://github.com/InnateAlpaca)
  */
 
-import { system, GameMode, world, Vector } from '@minecraft/server';
+import { system, GameMode, world } from '@minecraft/server';
 import { bridge } from '../addons';
 
 const tags = {
@@ -117,7 +117,7 @@ bridge.bedrockCommands.registerCommand("back", (player)=>{
     if (!player.hasTag(tags.admin)&&!player.hasTag(tags.member)) return;
     if (player.scoreboardIdentity && die_loc_x.hasParticipant(player.scoreboardIdentity)){ //we check just one, no need for the whole 3 as they are set together
         system.run(()=>{
-            player.teleport(new Vector(die_loc_x.getScore(player.scoreboardIdentity), die_loc_y.getScore(player.scoreboardIdentity), die_loc_z.getScore(player.scoreboardIdentity)));
+            player.teleport({x: die_loc_x.getScore(player.scoreboardIdentity), y: die_loc_y.getScore(player.scoreboardIdentity), z: die_loc_z.getScore(player.scoreboardIdentity)});
             player.sendMessage("§eYou have been teleported to the last available death location.")
         })
     }
