@@ -1,11 +1,11 @@
 {
     "format_version": 2,
     "header": {
-        "name": "Bedrock-Bridge v1.3.10",
+        "name": "Bedrock-Bridge v1.3.11",
         "description": "BedrockBridge is a Minecraft Bedrock addon that allows server owners to connect their bedrock-server to their discord-server. This way they can interact bidirectionally. Addon includes server chat stream and custom commands.",
         "uuid": "b17755d2-3cc0-424b-89dd-558fc98513f5",
-        "version": [1, 3, 10],
-        "min_engine_version": [ 1, 21, 0]
+        "version": [1, 3, 11],
+        "min_engine_version": [ 1, 21, 20]
     },
 	"modules": [
         {
@@ -20,11 +20,11 @@
 	"dependencies": [
 		{
 			"module_name": "@minecraft/server",
-			"version": "1.12.0-beta"
+			"version": "1.14.0-beta"
 		},
 		{
 			"module_name": "@minecraft/server-ui",
-			"version": "1.2.0-beta"
+			"version": "1.3.0-beta"
 		},
 		{
 			"module_name": "@minecraft/server-net",

@@ -1,11 +1,11 @@
-BedrockBridge v1.3.10 by EsploratoriDevelopment
-compatible with Bedrock 1.21.0 (till the next major update)
+BedrockBridge v1.3.11 by EsploratoriDevelopment
+compatible with Bedrock 1.21.20 (till the next major update)
 
 INSTALLING
 1) install the "world_pack" on your world, and enable beta API (old experimental features)
 2) go to your server main folder
 3) copy the folder "development_behaviour_packs" form this folder to folder of step 2). if asked to merge allow it.
 5) start the server.
-6) run /scriptevent esploratori:setup and complete setup.
+6) run /function esploratori/setup and complete setup.
 
 A more detailed guide can be found at https://github.com/InnateAlpaca/BedrockBridge

@@ -43,7 +43,7 @@ world.afterEvents.playerLeave.subscribe(e=>{
     timeScoreboard.setScore(scoreboardIds.get(e.playerId), timeScoreboard.getScore(scoreboardIds.get(e.playerId))+session_time)
     
     scoreboardIds.delete(e.playerId);    
-    joinTime.delete(e.playerId);    
+    joinTime.delete(e.playerId);
 })
 
 bridge.bedrockCommands.registerCommand("gametime", (player)=>{
