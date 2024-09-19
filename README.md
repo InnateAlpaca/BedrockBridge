@@ -8,7 +8,7 @@ BedrockBridge is a minecraft addon that connects your bedrock-server to your dis
 Here you can get help and download the latest version of the pack, find a full installation tutorial, try the pack without installing it on our test-server. 
 You can also contact us by [email](mailto:development@esploratorismp.space).
 
-*Is it up to date?* So far supported versions are: **1.19.50, 1.19.60, 1.19.70, 1.19.80, 1.20.0, 1.20.10, 1.20.30, 1.20.40**, **1.20.50**, **1.20.60**, **1.20.70**, **1.20.80**, **1.21.0**, **1.21.2**, **1.21.20** (latest), and minor following updates. You need to install the right addon version for each mc-version (check the tags for the right one).
+*Is it up to date?* So far supported versions are: **1.19.50, 1.19.60, 1.19.70, 1.19.80, 1.20.0, 1.20.10, 1.20.30, 1.20.40**, **1.20.50**, **1.20.60**, **1.20.70**, **1.20.80**, **1.21.0**, **1.21.2**, **1.21.20**,  **1.21.30**(latest), and minor following updates. You need to install the right addon version for each mc-version (check the tags for the right one).
 
 
 Feel free also to check our [FAQ](FAQ.md) and [DOCS](DOCS.MD).
@@ -17,7 +17,7 @@ And if you want to donate you can do it [here](https://gofund.me/bdd174c3)!
 ## Installation
 Short version (for expert users only) is this: 
 * [invite](https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands) bot, run `/setup`, install `Bedrock-Bridge.mcaddon` on your world. 
-* Run `/scriptevent esploratori:setup` to start in-game configuration process, and fill in the form. 
+* Run `/function esploratori/setup` to start in-game configuration process, and fill in the form. 
 * Run `connect` (with the prefix you chose) to connect your server.
 
 If you are not an expert user you may want to take a look at the following guide. More info about installing addons on servers (in general) can be found [here](https://learn.microsoft.com/en-us/minecraft/creator/documents/scriptingservers). If you are having troubles setting up the addon you can also use the [auto-installer](https://bedrockbridge.esploratori.space/auto-installer.html) tool!

@@ -53,10 +53,15 @@ get a player's location. Its dimension is shown by a block image (dirt for overw
 * username
 
 visualize player inventory's content
+
+### echest
+* username
+
+visualize player inventory's ender chest.
 ### stats
 * username
 
-Get many useful info about a player: nametag, gamemode, level, health, isOp, location, spawn, join date, tags, scoreboard scores.
+Get many useful info about a player: nametag, gamemode, level, health, isOp, location, spawn, join date, tags, scoreboard scores, device used, xuid.
 ### kill
 * username
 
