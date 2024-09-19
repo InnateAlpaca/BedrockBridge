@@ -1,5 +1,5 @@
 /**
- * TPS (Ticks Per Second) v1.0.1 - BedrockBridge Plugin
+ * TPS (Ticks Per Second) @version 1.0.2 - BedrockBridge Plugin
  * 
  * This bridge-addon adds a useful command to check TPS.
  * 
@@ -59,15 +59,11 @@ bridge.bedrockCommands.registerCommand("tps", (user)=>{
     user.sendMessage(`- Number of items: ${counters[types.items]}`)
 }, "get current TPS for the server."); //this is the description which will be visualised in !help
 
-bridge.bedrockCommands.registerCommand("showServerStats", (user)=>{
-    if (!user.hasTag(tags.admin)){
-        user.sendMessage("§cYou are not allowed to run this command.");
-        return;
-    }
-    system.run(()=>{
-        world.scoreboard.setObjectiveAtDisplaySlot(DisplaySlotId.Sidebar, {objective:TPSscoreboard});
-        user.sendMessage("§eServer added to sidebar.")
-    })
+bridge.bedrockCommands.registerAdminCommand("showServerStats", (user)=>{
+
+    world.scoreboard.setObjectiveAtDisplaySlot(DisplaySlotId.Sidebar, {objective:TPSscoreboard});
+    user.sendMessage("§eServer added to sidebar.")
+    
 }, "show real-time TPS on players' screen sidebar."); //this is the description which will be visualised in !help
 
 bridge.bedrockCommands.registerCommand("hideServerStats", (user)=>{
@@ -75,10 +71,10 @@ bridge.bedrockCommands.registerCommand("hideServerStats", (user)=>{
         user.sendMessage("§cYou are not allowed to run this command.");
         return;
     }
-    system.run(()=>{
-        world.scoreboard.clearObjectiveAtDisplaySlot(DisplaySlotId.Sidebar);
-        user.sendMessage("§eServer stats removed from sidebar.")
-    })   
+
+    world.scoreboard.clearObjectiveAtDisplaySlot(DisplaySlotId.Sidebar);
+    user.sendMessage("§eServer stats removed from sidebar.")
+       
 }, "hide TPS stats from players' screen."); //this is the description which will be visualised in !help
 
 
@@ -92,26 +88,9 @@ system.runInterval(()=>{
 
     TPSscoreboard.setScore(score_names.tps, counters[types.tps]);
     TPSscoreboard.setScore(score_names.players, counters[types.players]);
-    TPSscoreboard.setScore(score_names.items, counters[types.items]);
-    TPSscoreboard.setScore(score_names.mobs, counters[types.mobs]);
+    TPSscoreboard.setScore(score_names.items, getEntityCount({ type: "item" }));
+    TPSscoreboard.setScore(score_names.mobs, getEntityCount({ excludeTypes: ["item", "player"] }));
 }, interval)
-
-const entity_types = {};
-
-world.afterEvents.entitySpawn.subscribe(({entity})=>{
-    if (entity.isValid())
-    switch(entity.typeId){
-        case "minecraft:item":{
-            entity_types[entity.id] = types.items;
-            counters[types.items]++; 
-            break;
-        }
-        default: {
-            entity_types[entity.id] = types.mobs;            
-            counters[types.mobs]++; 
-        }
-    }
-})
 
 world.afterEvents.playerJoin.subscribe(()=>{
     counters[types.players]++;    
@@ -119,31 +98,26 @@ world.afterEvents.playerJoin.subscribe(()=>{
 world.afterEvents.playerLeave.subscribe(()=>{
     counters[types.players]--;    
 })
-world.afterEvents.entityRemove.subscribe(e=>{
-    counters[entity_types[e.removedEntityId]]--;
-    delete entity_types[e.removedEntityId];    
-})
-
+const dimensions = [
+    world.getDimension("overworld"),
+    world.getDimension("nether"),
+    world.getDimension("the_End")
+]
 async function main(){
     TPSscoreboard.setScore(score_names.tps, 20);
     TPSscoreboard.setScore(score_names.players, 0);
     TPSscoreboard.setScore(score_names.mobs, 0);
     TPSscoreboard.setScore(score_names.items, 0);
 
-    for (const dimName of ["overworld", "nether", "the_End"]){
-        const dimension = world.getDimension(dimName);
-        dimension.getEntities({type: "item"}).forEach(e=>{
-            entity_types[e.id] = types.items;
-            counters[types.items]++;
-        })
-        dimension.getEntities({excludeTypes: ["item", "player"]}).forEach(e=>{
-            entity_types[e.id] = types.items;
-            counters[types.mobs]++;
-        })
-        await null;
-    }
-
     counters[types.players] = world.getAllPlayers().length
+}
+
+function getEntityCount(filter = { type: "item" }){
+    let count = 0;
+    for (const dimension of dimensions) {
+        count += dimension.getEntities(filter).length
+    }
+    return count;
 }
 
 main();

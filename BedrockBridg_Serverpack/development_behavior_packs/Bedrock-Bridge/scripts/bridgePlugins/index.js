@@ -1,5 +1,7 @@
 /**
- * BedrockBridge-Plugins (bridgeAPI 1.0.0)
+ * BedrockBridge-Plugins
+ * 
+ * BridgeAPI @version 1.0.1
  * 
  * From here you can install bridgePlugins which use bridgeAPI. 
  * You can find all details in https://github.com/InnateAlpaca/BedrockBridge/blob/main/docs/bridgeAPI/esploratori_bridge.md
@@ -8,10 +10,11 @@
  * You can find a list of available plugins in https://github.com/InnateAlpaca/BedrockBridge/tree/main/bridge_plugins
  */
 
-import "./basicNicerChat/basicNicerChat"
-// import "./deathCounter"
+import "./basicNicerChat"
+import "./deathCounter"
+import "./stepCounter"
+import "./playtime"
 // import "./getAwayWithMurder"
-// import "./playtime"
 // import "./idcAbtAnimals"
 // import "./basicCustomCommands"
 // import "./customCommandCompatibility"
