@@ -24,3 +24,11 @@ Type: [*bridgeEvents*](bridgeEvents.md)
 Command handler for bedrockbridge.
 
 Type: [*bedrockCommands*](bedrockCommands.md)
+
+### **playerList**
+`read-only bedrockCommands: Array<{name:string, id:string}>`
+
+Full list of all players who joined the server:
+
+Type: *Array<{name:string, id:string}>*
+

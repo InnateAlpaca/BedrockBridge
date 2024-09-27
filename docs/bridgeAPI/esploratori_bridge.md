@@ -18,6 +18,8 @@ The `esploratori/bridgeAPI` module contains resources for customising and enhanc
 - [commandArgument](commandArgument.md)
 - [bridgeCommands](bridgeCommands.md)
 - [bridgeEvents](bridgeEvents.md)
+- [EsploratoriDatabase](EsploratoriDatabase.md)
+- [BridgeDirect](BridgeDirect.md)
 - petDieLogEvent
 - petDieLogEventSignal
 - playerDieLogEvent
@@ -32,13 +34,23 @@ The `esploratori/bridgeAPI` module contains resources for customising and enhanc
 - chatUpStreamEventSignal
 - bridgeInitializeEvent
 - bridgeInitializeEventSignal
-- gonePlayerObject
+
 ## Objects
   
 ### **bridge**
 `static read-only bridge: WorldBridge;`
 
 Type: [*WorldBridge*](WorldBridge.md)
+
+### **bridgeDirect**
+`static read-only bridge: BridgeDirect;`
+
+Type: [*BridgeDirect*](BridgeDirect.md)
+
+### **database**
+`static read-only bridge: EsploratoriDatabase;`
+
+Type: [*EsploratoriDatabase*](EsploratoriDatabase.md)
 
 ## Extensions
 Some native js types have been extended, here's a list of the changes.
