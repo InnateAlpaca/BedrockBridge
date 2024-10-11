@@ -12,17 +12,18 @@ First thing to do is understanding where the problem is:
   * Your world doesn't have *experiments* on.
   * You are using the wrong version: there is a version of this pack for each major minecraft update. Versions are not interchangeable (you need to instal the right one). Check the github [*tags*](https://github.com/InnateAlpaca/BedrockBridge/tags) for the right one.
 * Nice it works... but it says "offline". Then your server was not able to connect to the bot, try to run in chat `!messages` and see if is there any. Most probable issue is:
-  * You haven't added the token to the [config file](BedrockBridge#bedrock-setup) (or your token is no longer valid, in this case request a new one from your discord server).
+  * You haven't added the token to the [config file](BedrockBridge#bedrock-setup) or setting form (or your token is no longer valid, in this case request a new one from your discord server).
 * Nope that was all fine, but I still can't see the chat! Well, in this case the problem is with discord setup. 
   * make sure that you ran `/setup` on your discord server
   * try to reinvite the bot
-  * give the bot ADMIN permissions. (Some servers have options that will prevent the bot from setting up webhooks)
+  * give the bot ADMIN permissions and run `/setup` again (Some servers have options that will prevent the bot from setting up webhooks).
+  * switch pack order and put BedrockBridge on top of the other addons (then restart server).
 
 If you are still having troubles don't hesitate to **contact us** on the [official discord](https://discord.gg/A2SDjxQshJ) or open a [ticket](https://github.com/InnateAlpaca/BedrockBridge/issues) here on github.
 
 *Note: Github tickets will typically take longer to be addressed than discord reports.*
 
-### It doesn't work since February 2024!
+### It doesn't work since February 2024! (versions v1.3.4 or lower)
 Hello if you are having connection issues and error logs on your screen, that's because we updated the discord bot address. So all older packs won't be able to connect to it anymore. *How should I fix it?*
 * If you are running the **latest** version of minecraft bedrock edition you can just install the newer version we released. Or override the `main.js` (from the addon files) with the new one.
 * If you are running an older version of BedrockBridge (v1.3.4 or lower) you need to manually fix it, as we won't release an official fix for them.
