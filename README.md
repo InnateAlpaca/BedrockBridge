@@ -22,9 +22,9 @@ Short version (for expert users only) is this:
 
 If you are not an expert user you may want to take a look at the following guide. More info about installing addons on servers (in general) can be found [here](https://learn.microsoft.com/en-us/minecraft/creator/documents/scriptingservers). If you are having troubles setting up the addon you can also use the [auto-installer](https://bedrockbridge.esploratori.space/auto-installer.html) tool!
 
-Don't forget to check our [YouTube](https://www.youtube.com/@Esploratori-Development/featured) tutorials: installation on [hosted servers](https://youtu.be/1NTrhmW43eE), and on [Aternos](https://www.youtube.com/watch?v=JlVKpC0o8jg)!
+Don't forget to check our [YouTube](https://www.youtube.com/@Esploratori-Development/featured) tutorials: installation on [hosted servers](https://youtu.be/1NTrhmW43eE), and on [Aternos](https://youtu.be/fcM9pY2JhMw)!
 ### Discord setup
-1. Invite BedrockBridge discord bot to your discord-server using this [link](https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands)
+1. Invite BedrockBridge discord bot to your discord-server using this [link](https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands).
 2. Choose the channel you want to have bedrock-chat streamed to and run `/setup` in it.
 3. Request a new token by running `/new-token`. Keep it safe.
 
@@ -33,7 +33,7 @@ Don't forget to check our [YouTube](https://www.youtube.com/@Esploratori-Develop
 4. [Download](https://raw.githubusercontent.com/InnateAlpaca/BedrockBridge/main/Bedrock-Bridge.mcaddon) BedrockBridge addon.
 5. Install BedrockBridge addon on your world, making sure to enable experiments (**beta API**) and ignore console error logs[^1].
 6. Upload the world back to your server.
-7. Navigate to `<main folder>/config/default` and open `permissions.json`. Add the following line to the file `"@minecraft/server-net"` making sure that it respects JSON format[^2]. 
+7. Navigate to `<main folder>/config/default` and open `permissions.json`. Add the following line to the file `"@minecraft/server-net"` making sure that it respects JSON format[^2]. *Note: if errors persist just replace your `permissions.json` file with [this file](https://github.com/InnateAlpaca/BedrockBridge/blob/main/BedrockBridg_Serverpack/config/default/permissions.json).*
 8. Start your server, join the game, and run `/scriptevent esploratori:setup`. Now fill the form. 
 
 *Note: If you are not op or if cheats are disabled, in order to open the setup form please run the following command in server-console while you are connected to the server: `execute as <your username> run scriptevent esploratori:setup` (e.g. `execute as InnateAlpaca run scriptevent esploratori:setup`). Now close the chat and fill the form.*
