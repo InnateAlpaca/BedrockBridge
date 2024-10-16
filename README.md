@@ -40,7 +40,7 @@ Don't forget to check our [YouTube](https://www.youtube.com/@Esploratori-Develop
 [^1]: The error is caused by usage of modules that are server-only and can't be used in single world. The world will have no issue when running on a server.
 [^2]: You can use [this tool](https://jsonchecker.com/) to verify if the modified file is valid, if it's invalid you are most surely missing some comma or quote.
 
-*Check the [documents](DOCS.MD) in order to see what commands you can run form discord, and enjoy!!*
+*Check the [documents](DOCS.MD) in order to see what commands you can run from discord, and enjoy!!*
 
 ### Aternos
 **New Installation for Aternos users** (since bridge 1.4.2)
