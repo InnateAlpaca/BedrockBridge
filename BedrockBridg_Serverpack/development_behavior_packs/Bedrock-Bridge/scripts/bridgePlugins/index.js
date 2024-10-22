@@ -10,6 +10,8 @@
  * You can find a list of available plugins in https://github.com/InnateAlpaca/BedrockBridge/tree/main/bridge_plugins
  */
 
+import "./external" // bridgeDirect capabilities. Do not comment, unless you want to disable discord connection for external packs
+
 import "./basicNicerChat"
 import "./deathCounter"
 import "./stepCounter"

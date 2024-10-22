@@ -1,5 +1,5 @@
-BedrockBridge v1.4.2 by EsploratoriDevelopment
-compatible with Bedrock 1.21.30 (till the next major update)
+BedrockBridge v1.4.3 by EsploratoriDevelopment
+compatible with Bedrock 1.21.40 (till the next major update)
 
 INSTALLING
 1) install the "world_pack" on your world, and enable beta API (old experimental features)
