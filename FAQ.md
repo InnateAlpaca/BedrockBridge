@@ -19,7 +19,7 @@ First thing to do is understanding where the problem is:
   * give the bot ADMIN permissions and run `/setup` again (Some servers have options that will prevent the bot from setting up webhooks).
   * switch pack order and put BedrockBridge on top of the other addons (then restart server).
 
-If you are still having troubles don't hesitate to **contact us** on the [official discord](https://discord.gg/A2SDjxQshJ) or open a [ticket](https://github.com/InnateAlpaca/BedrockBridge/issues) here on github.
+If you are still having troubles don't hesitate to **contact us** on the [official discord](https://discord.gg/esploratori-development-1043447184210792468) or open a [ticket](https://github.com/InnateAlpaca/BedrockBridge/issues) here on github.
 
 *Note: Github tickets will typically take longer to be addressed than discord reports.*
 
