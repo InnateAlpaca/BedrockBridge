@@ -31,10 +31,8 @@ class bridgeEvent {
  * The class si independent from the pack and can be used in any other pack, as long as BedrockBridge is installed for the world.
  */
 class BridgeDirect {
-    #dimension
     #ready = false
     constructor() {
-        this.#dimension = world.getDimension("overworld");
         system.afterEvents.scriptEventReceive.subscribe(e => {
             if (e.id === "discord:ready") {
                 this.#ready = true;
@@ -54,9 +52,10 @@ class BridgeDirect {
      * @param {string?} picture url to a picture to be displayed as discord pfp for the message
      */
     sendMessage(message, author, picture) {
-        if (this.#ready){
-            this.#dimension.runCommand("scriptevent discord:message " + JSON.stringify({ message: message, author: author, picture: picture ?? "https://i.imgur.com/9y8IvBG.png" }))
-        }            
+        if (this.#ready) {
+            // system.scriptEventReceive
+            system.sendScriptEvent("discord:message", JSON.stringify({ message: message, author: author, picture: picture ?? "https://i.imgur.com/9y8IvBG.png" }))
+        }
         else throw new Error("BridgeDirect: you cannot send a message while the bridge is not ready")
     }
     /**
@@ -67,7 +66,7 @@ class BridgeDirect {
      */
     sendEmbed(embed, author, picture) {
         if (this.#ready)
-            this.#dimension.runCommand("scriptevent discord:embed" + JSON.stringify({
+            system.sendScriptEvent("discord:embed", JSON.stringify({
                 author: author,
                 embed: embed,
                 picture: picture

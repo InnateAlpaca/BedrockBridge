@@ -135,6 +135,30 @@ Standard output uses embeds for all events (playerDeath, join, leavel...) while 
 
 Get a notification every time your server starts (actually when the script is started).
 
+### shutdown_notify
+* boolean (true/false)
+
+Get a notification every time your server stops (actually when the connection with the server is lost).
+
+### remote_transfer_disabled
+* boolean (true/false)
+
+Allow or disable player transfer to another server through discord `/transfer` command, or through bridge network request.
+
+### partner_servers
+* string
+
+Comma separated list of allowed partner servers with the following format *displayName:host:port*. Where *displayName is the name players will be using in-game to transfer, *host* is the target ip/domain, and *port* is the target port.
+```json
+// Example for variables.json
+{
+    // ...
+    "partner_servers": "funServer:play.example.com:19132,lifesteal:mc.games.fun:19220",
+    // ...
+}
+
+```
+
 ### origin (optional)
 * domain (e.g. `myserver.aternos.me`)
 
