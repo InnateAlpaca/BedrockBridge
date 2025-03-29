@@ -1,5 +1,7 @@
 /**
- * playtime (Players gaming time) - BedrockBridge Plugin
+ * playtime (Players gaming time)- BedrockBridge Plugin
+ * 
+ * @version 1.0.1 
  * 
  * This bridge plugin lets you inquiry the time a player spent on the server. 
  * It handles info as scoreboard, so you can gather it from discord by running /stats.
@@ -9,7 +11,7 @@
  * by InnateAlpaca (https://github.com/InnateAlpaca) 
  */
 
-import { world, system } from '@minecraft/server'
+import { world, system, Player } from '@minecraft/server'
 import { bridge } from '../addons'
 
 const scoreboard_name = "esploratori:overall_time", session_scoreboard_name="esploratori:session_time";
@@ -20,6 +22,8 @@ const joinTime = new Map();
 const scoreboardIds = new Map();
 
 world.getAllPlayers().forEach(async player=>{ //this line is here in case someone runs /reload which will erase stored data for online players
+    if (!player) return;
+    
     player.runCommand(`scoreboard players add @s ${scoreboard_name} 0`);
     player.runCommand(`scoreboard players set @s ${session_scoreboard_name} 0`);
     
@@ -28,7 +32,7 @@ world.getAllPlayers().forEach(async player=>{ //this line is here in case someon
 })
 
 world.afterEvents.playerSpawn.subscribe(({player, initialSpawn})=>{
-    if (initialSpawn){
+    if (initialSpawn && player){
         player.runCommand(`scoreboard players add @s ${scoreboard_name} 0`);
         player.runCommand(`scoreboard players set @s ${session_scoreboard_name} 0`);
 
@@ -39,11 +43,13 @@ world.afterEvents.playerSpawn.subscribe(({player, initialSpawn})=>{
 
 world.afterEvents.playerLeave.subscribe(e=>{
     const session_time = Math.floor(1.667e-5*(Date.now()-joinTime.get(e.playerId)));
-    // console.log("scoreboard id", scoreboardIds.get(e.playerId).id.toString(), scoreboardIds.get(e.playerId).isValid())
-    timeScoreboard.setScore(scoreboardIds.get(e.playerId), timeScoreboard.getScore(scoreboardIds.get(e.playerId))+session_time)
     
-    scoreboardIds.delete(e.playerId);    
-    joinTime.delete(e.playerId);
+    if (scoreboardIds.has(e.playerId)){ // ignore gake players, who haven't been added to the map
+        timeScoreboard.setScore(scoreboardIds.get(e.playerId), timeScoreboard.getScore(scoreboardIds.get(e.playerId)) + session_time)
+
+        scoreboardIds.delete(e.playerId);
+        joinTime.delete(e.playerId);  
+    }  
 })
 
 bridge.bedrockCommands.registerCommand("gametime", (player)=>{
@@ -60,7 +66,8 @@ bridge.bedrockCommands.registerCommand("gametime", (player)=>{
 }, "Get your play-time in minutes.");
 
 system.runInterval(()=>{
-    world.getAllPlayers().forEach(p=>{        
+    world.getAllPlayers().forEach(p=>{       
+        if (!p) return; 
         const session_time = Math.floor(1.667e-5*(Date.now()-joinTime.get(p.id)));
         p.runCommand(`scoreboard players set @s ${session_scoreboard_name} ${session_time}`);
     })

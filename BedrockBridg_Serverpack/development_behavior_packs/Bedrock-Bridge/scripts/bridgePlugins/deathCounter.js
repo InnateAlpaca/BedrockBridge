@@ -1,5 +1,5 @@
 /**
- * deathCounter @version 1.0.1 - BedrockBridge Plugin
+ * deathCounter @version 1.0.2 - BedrockBridge Plugin
  * 
  * This bridge-addon creates and handles scoreboard entries for: number of deaths, number of kills, number of player killed. 
  * You can retrieve this information about a player from discord by running the command /stats
@@ -19,15 +19,18 @@ const mob_kills_obj = world.scoreboard.getObjective(mobs_name)??world.scoreboard
 const pvp_death_obj = world.scoreboard.getObjective(pvpdeath_name) ?? world.scoreboard.addObjective(pvpdeath_name, "number of pvp deaths");
 
 // reload command handler
-world.getAllPlayers().forEach(player=>{ 
-    player.runCommand(`scoreboard players add @s ${death_name} 0`)
-    player.runCommand(`scoreboard players add @s ${kills_name} 0`)
-    player.runCommand(`scoreboard players add @s ${mobs_name} 0`)
-    player.runCommand(`scoreboard players add @s ${pvpdeath_name} 0`)
+world.getAllPlayers().forEach(player=>{
+    if (player){
+        player.runCommand(`scoreboard players add @s ${death_name} 0`)
+        player.runCommand(`scoreboard players add @s ${kills_name} 0`)
+        player.runCommand(`scoreboard players add @s ${mobs_name} 0`)
+        player.runCommand(`scoreboard players add @s ${pvpdeath_name} 0`)
+    }
+    
 })
 
 world.afterEvents.playerSpawn.subscribe(e=>{
-    if (e.initialSpawn){
+    if (e.initialSpawn && e.player){
         e.player.runCommand(`scoreboard players add @s ${death_name} 0`)
         e.player.runCommand(`scoreboard players add @s ${kills_name} 0`)
         e.player.runCommand(`scoreboard players add @s ${mobs_name} 0`)

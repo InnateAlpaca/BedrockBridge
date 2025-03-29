@@ -1,5 +1,5 @@
 /**
- * Basic Custom Commands (basicCustomCommands) v1.0.3 - BedrockBridge Plugin
+ * Basic Custom Commands (basicCustomCommands) v1.0.4 - BedrockBridge Plugin
  * 
  * This bridge-addon provides some useful ingame additional prefix-commands. This is mainly meant as an example for you to make more!
  * Once you register a command you will be able to visualise it from !help along with the other bridge commands
@@ -11,19 +11,13 @@ import { system, GameMode, world } from '@minecraft/server';
 import { bridge } from '../addons';
 
 const tags = {
-    admin: "admin", 
     member: "member"
 }
 
 // You can see the structure: 1) name of command, 2) callback run when the command is used (and you get 
 // the player who ran the command, and all parameters already split even with quotes) and 3) description
 // which will be visualised when a player runs !help
-bridge.bedrockCommands.registerCommand("tp", (user, target)=>{
-    if (!user.hasTag(tags.admin)){
-        user.sendMessage("§cYou are not allowed to run this command.");
-        return;
-    }
-
+bridge.bedrockCommands.registerAdminCommand("tp", (user, target)=>{
     // Now let's do the stuff
     if(target?.readPlayer()) //readPlayer converts the string in a player object with that nametag
         user.teleport(target.readPlayer().location)
@@ -33,12 +27,7 @@ bridge.bedrockCommands.registerCommand("tp", (user, target)=>{
 }, "teleport to the target player location. Usage: tp <username>"); //this is the description which will be visualised in !help
 
 
-bridge.bedrockCommands.registerCommand("mute", (user, target, time)=>{
-    if (!user.hasTag(tags.admin)){
-        user.sendMessage("§cYou are not allowed to run this command.");
-        return;
-    }
-
+bridge.bedrockCommands.registerAdminCommand("mute", (user, target, time)=>{
     const target_player = target?.readPlayer();
     if(target_player){
         if (time){
@@ -62,12 +51,7 @@ bridge.bedrockCommands.registerCommand("mute", (user, target, time)=>{
 
 
 // Ideated by PoWeROffAPT
-bridge.bedrockCommands.registerCommand("heal", (user, target) => {
-    if (!user.hasTag(tags.admin)) {
-        user.sendMessage("§cYou are not allowed to run this command.");
-        return;
-    }
-
+bridge.bedrockCommands.registerAdminCommand("heal", (user, target) => {
     const target_player = target?.readPlayer();
     if (target_player){
         system.run(()=>{
@@ -84,12 +68,7 @@ bridge.bedrockCommands.registerCommand("heal", (user, target) => {
 }, "heal a target player. Usage: heal <username>");
 
 // Ideated by PoWeROffAPT
-bridge.bedrockCommands.registerCommand("gamemode", async(user, target, mode) => {
-    if (!user.hasTag(tags.admin)) {
-        user.sendMessage("§cYou are not allowed to run this command.");
-        return;
-    }
-
+bridge.bedrockCommands.registerAdminCommand("gamemode", async(user, target, mode) => {
     const target_player = target?.readPlayer();
     if (mode.toString() in GameMode && target_player){
         await target_player.runCommandAsync(`gamemode ${mode} @s`);
@@ -113,8 +92,7 @@ bridge.events.playerDieLog.subscribe((e, player)=>{
         die_loc_z.setScore(player, player.location.z);
     }   
 })
-bridge.bedrockCommands.registerCommand("back", (player)=>{
-    if (!player.hasTag(tags.admin)&&!player.hasTag(tags.member)) return;
+bridge.bedrockCommands.registerTagCommand("back", (player)=>{
     if (player.scoreboardIdentity && die_loc_x.hasParticipant(player.scoreboardIdentity)){ //we check just one, no need for the whole 3 as they are set together
         system.run(()=>{
             player.teleport({x: die_loc_x.getScore(player.scoreboardIdentity), y: die_loc_y.getScore(player.scoreboardIdentity), z: die_loc_z.getScore(player.scoreboardIdentity)});
@@ -124,4 +102,4 @@ bridge.bedrockCommands.registerCommand("back", (player)=>{
     else{
         player.sendMessage("§cTeleport was not possible: last death location is not available.");
     }
-}, "teleport players to the last place where they died, if available.")
+}, "teleport players to the last place where they died, if available.", "esploratori:admin", tags.member)

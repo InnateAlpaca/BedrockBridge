@@ -1,5 +1,5 @@
 /**
- * TPS (Ticks Per Second) @version 1.0.3 - BedrockBridge Plugin
+ * TPS (Ticks Per Second) @version 1.1.0 - BedrockBridge Plugin
  * 
  * This bridge-addon adds a useful command to check TPS.
  * 
@@ -12,8 +12,16 @@
  * ideated by Jaso0on
  */
 
-import { system, world, DisplaySlotId, MinecraftDimensionTypes, DimensionTypes } from '@minecraft/server';
+import { system, world, DisplaySlotId, DimensionTypes, Dimension } from '@minecraft/server';
 import { bridge } from '../addons';
+import { bridgeDirect } from "../BridgeDirect";
+
+// report TPS lags to discord
+const discord_report_enabled = true; 
+// how long before sending another report if one has just been sent (in ticks), avoid spamming
+const discord_delay = 40;
+// minimum value for TPS to trigger a report to discord
+const discord_report_min = 17;
 
 /**Update interval (ticks) for stats shown in the scoreboard. 20 ticks is 1 second.*/
 const interval = 20;
@@ -47,9 +55,9 @@ TPSscoreboard.getParticipants().forEach(p => {
 })
 
 const dimensions = {
-    [MinecraftDimensionTypes.overworld]: world.getDimension(MinecraftDimensionTypes.overworld),
-    [MinecraftDimensionTypes.nether]: world.getDimension(MinecraftDimensionTypes.nether),
-    [MinecraftDimensionTypes.theEnd]: world.getDimension(MinecraftDimensionTypes.theEnd)
+    [DimensionTypes.get("overworld").typeId]: world.getDimension("overworld"),
+    [DimensionTypes.get("nether").typeId]: world.getDimension("nether"),
+    [DimensionTypes.get("the_end").typeId]: world.getDimension("the_end")
 }
 
 function  getCurrentCount(filter){
@@ -131,6 +139,29 @@ bridge.bedrockCommands.registerAdminCommand("hideServerStats", (user)=>{
 var last_check = Date.now();
 var last_tick = system.currentTick;
 
+if (discord_report_enabled){
+    bridge.events.bridgeInitialize.subscribe(e=>{
+        e.registerAddition("discord_direct")
+    })
+}
+
+let last_report = system.currentTick;
+/** Report TPS drop to discord*/
+function report(){
+    const current = system.currentTick
+    if (discord_report_enabled && bridgeDirect.ready && current - last_report > discord_delay){
+        const message = `A TPS drop has been detected on your server!\n\n- TPS: \`${Math.round(counters[types.tps])}\`\n- Entities: \`${counters[types.players] + counters[types.items] + counters[types.mobs]}\`\n- Players: ` + 
+                        world.getAllPlayers().map(player => `\`${player.name}\` (${player.dimension.getEntities({ maxDistance: 64, location: player.location }).length})`).join(", ")
+        bridgeDirect.sendEmbed({
+            title: "TPS Drop",
+            description: message,
+            color: 15548997
+        })
+
+        last_report = current;
+    }
+}
+
 system.runInterval(()=>{
     counters[types.tps] = 1000*(system.currentTick-last_tick)/(Date.now()-last_check);
     last_check = Date.now();
@@ -140,10 +171,16 @@ system.runInterval(()=>{
     TPSscoreboard.setScore(score_names.players, counters[types.players]);
     TPSscoreboard.setScore(score_names.items, counters[types.items]);
     TPSscoreboard.setScore(score_names.mobs, counters[types.mobs]);
+
+    if (counters[types.tps]<=discord_report_min){
+        report();
+    }
 }, interval)
 
 
 system.run(()=>{
+    setCounters();
+
     TPSscoreboard.setScore(score_names.tps, counters[types.tps]);
     TPSscoreboard.setScore(score_names.players, counters[types.players]);
     TPSscoreboard.setScore(score_names.items, counters[types.items]);

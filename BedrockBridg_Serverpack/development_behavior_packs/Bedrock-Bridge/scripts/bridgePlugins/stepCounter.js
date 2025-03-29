@@ -1,5 +1,7 @@
 /**
- * StepCounter (Players walking distance) @version 1.1.0 - BedrockBridge Plugin
+ * StepCounter (Players walking distance) - BedrockBridge Plugin
+ * 
+ * @version 1.1.1
  * 
  * This bridge plugin lets you inquiry the distance a player has been walking on a server.
  * It handles info as scoreboard, so you can gather it from discord by running /stats.
@@ -41,6 +43,8 @@ const player_dimensions = new Map();
 
 system.runInterval(()=>{
     for (const player of world.getAllPlayers()){
+        if (!player) continue;
+
         if (player_dimensions.get(player.id)===player.dimension.id){
             const dist = distance(player.location, player_locations.get(player.id));
 
@@ -56,18 +60,22 @@ system.runInterval(()=>{
 }, 10)
 
 world.afterEvents.playerSpawn.subscribe(e=>{
-    if (e.initialSpawn) return;
-
-    player_locations.set(e.player.id, e.player.location);
-    player_dimensions.set(e.player.id, e.player.dimension.id);
-
-    // Initialise steps score when player first joins
-    if (!e.player.scoreboardIdentity || !stepScoreboard.hasParticipant(e.player.scoreboardIdentity)){
-        stepScoreboard.addScore(e.player, 0);
-    }    
+    if (!e.player) return; // ignore simulatedplayers 
+    if (e.initialSpawn){
+        // Initialise steps score when player first joins
+        if (!e.player.scoreboardIdentity || !stepScoreboard.hasParticipant(e.player.scoreboardIdentity)) {
+            stepScoreboard.addScore(e.player, 0);
+        }  
+    }
+    else {
+        player_locations.set(e.player.id, e.player.location);
+        player_dimensions.set(e.player.id, e.player.dimension.id);
+    }      
 })
 
 world.afterEvents.playerLeave.subscribe(e=>{
+    if (!e.playerId) return; // ignore simulatedplayers 
+
     player_locations.delete(e.playerId);
     player_dimensions.delete(e.playerId);
 })
