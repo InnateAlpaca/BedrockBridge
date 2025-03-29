@@ -1,7 +1,7 @@
 /**
  * BedrockBridge-Plugins
  * 
- * BridgeAPI @version 1.0.1
+ * BridgeAPI @version 1.0.2
  * 
  * From here you can install bridgePlugins which use bridgeAPI. 
  * You can find all details in https://github.com/InnateAlpaca/BedrockBridge/blob/main/docs/bridgeAPI/esploratori_bridge.md
@@ -13,14 +13,16 @@
 import "./external" // bridgeDirect capabilities. Do not comment, unless you want to disable discord connection for external packs
 
 import "./basicNicerChat"
+import "./basicCustomCommands"
 import "./deathCounter"
 import "./stepCounter"
 import "./playtime"
+import "./TPS"
+import "./gameModes"
+
 // import "./simpleCommandLog"
 // import "./getAwayWithMurder"
 // import "./idcAbtAnimals"
-import "./basicCustomCommands"
 // import "./customCommandCompatibility"
 // import "./basicWarps/main"
 // import "./chatRank/main"
-import "./TPS"
