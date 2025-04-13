@@ -1,7 +1,7 @@
 /**
  * *****************************  addons.js  *****************************
- * 
- * Developed by Esploratori-Development https://discord.gg/A2SDjxQshJ
+ * @version 1.0.3
+ * Developed by Esploratori-Development https://discord.gg/kR2YwxaHxg
  * This module provides additional scripting capabilities known as bridgeAPI
  * which you can use to modify and enhance BedrockBridge capabilities, and
  * overall bedrock experience in general. We don't only provide tools to handle
@@ -18,8 +18,7 @@
  * Uniquely use this tool for bridge-plugins. If you wish to include part of this code in
  * your own addons ask BedrockBridge developers https://bedrockbridge.esploratori.space/Contact.html.
  * 
- * Donations (starting at 5$) are welcome in https://www.gofundme.com/f/bedrockbridge-v20
- * If you wish to order a personalised addon you can do that at https://www.fiverr.com/s/XxEKo2
+ * Donations (starting at 5$) are welcome in https://gofund.me/eed4b8e5
  */
 
 import * as mc from "@minecraft/server";
@@ -50,6 +49,7 @@ import { bridgeDirect } from "./BridgeDirect";
  * @property {string} message message from discord
  * @property {string[]?} roles name of roles that belong to the player. Only if "discord_roles" addition was enabled.
  * @property {string?} mention discord id of the user whose message is being replied
+ * @property {string?} color color of the top role assigned to the discord user
  * @property {boolean} cancel if true the message won't be sent 
  * @typedef chatDownStreamEventSignal
  * @property {(callback:(arg: chatDownStreamEvent)=>void)=>(arg: chatDownStreamEvent)=>void} subscribe register a new callback for this event.
@@ -221,12 +221,43 @@ export class CommandArgument extends String {
     readLocation() { /* function body */ }
 }
 
+class BridgeCommand {
+    /**
+     * Prefix used by all chat commands for BedrockBridge. 
+     * @readonly
+     * @type {string}
+     */
+    prefix
+
+    /**
+     * Name of the command 
+     * @readonly
+     * @type {string}
+     */
+    name
+
+    /**
+     * Set a list of tags for the players who can run this command.
+     * @param {string[]} tags 
+     * @returns {BridgeCommand}
+     */
+    setTags(tags){ /** ... */ }
+
+    /**
+     * Set a description for this command
+     * @param {string} description 
+     * @returns {BridgeCommand}
+     */
+    setDescription(description) { /** ... */ }
+}
+
 class BedrockCommands {
     /**
      * Register a command that can be run with the standard bridge prefix.
      * @param {string} name
      * @param {(player: Player, ...params: CommandArgument[])=>void} callback callback called on command run.
      * @param {string?} description add a description that will be shown when players run "help" command.
+     * @returns {BridgeCommand}
      */
     registerCommand(name, callback, description) { /** function body */ }
 
@@ -235,6 +266,7 @@ class BedrockCommands {
      * @param {string} name
      * @param {(player: Player, ...params: CommandArgument[])=>void} callback callback called on command run.
      * @param {string?} description add a description that will be shown when players run "help" command.
+     * @returns {BridgeCommand}
      */
     registerAdminCommand(name, callback, description) { /** function body */ }
 
@@ -244,6 +276,7 @@ class BedrockCommands {
      * @param {(player: Player, ...params: CommandArgument[])=>void} callback callback called on command run.
      * @param {string} description add a description that will be shown when players run "help" command.
      * @param {string[]} tags list of tags which will allow players to run this command.
+     * @returns {BridgeCommand}
      */
     registerTagCommand(name, callback, description, ...tags) { /** function body */ }
 

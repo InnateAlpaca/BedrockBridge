@@ -19,9 +19,9 @@ import { bridgeDirect } from "../BridgeDirect";
 // report TPS lags to discord
 const discord_report_enabled = true; 
 // how long before sending another report if one has just been sent (in ticks), avoid spamming
-const discord_delay = 40;
+const discord_delay = 1200; // 1 min
 // minimum value for TPS to trigger a report to discord
-const discord_report_min = 17;
+const discord_report_min = 5;
 
 /**Update interval (ticks) for stats shown in the scoreboard. 20 ticks is 1 second.*/
 const interval = 20;
