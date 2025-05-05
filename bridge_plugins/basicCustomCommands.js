@@ -1,5 +1,6 @@
 /**
- * Basic Custom Commands (basicCustomCommands) v1.0.4 - BedrockBridge Plugin
+ * Basic Custom Commands (basicCustomCommands) - BedrockBridge Plugin
+ * @version 1.0.5
  * 
  * This bridge-addon provides some useful ingame additional prefix-commands. This is mainly meant as an example for you to make more!
  * Once you register a command you will be able to visualise it from !help along with the other bridge commands
@@ -86,7 +87,7 @@ const die_loc_y = world.scoreboard.getObjective(die_score_names.y)??world.scoreb
 const die_loc_z = world.scoreboard.getObjective(die_score_names.z)??world.scoreboard.addObjective(die_score_names.z, "player death z");
 
 bridge.events.playerDieLog.subscribe((e, player)=>{
-    if (player.isValid()){
+    if (player.isValid){
         die_loc_x.setScore(player, player.location.x);
         die_loc_y.setScore(player, player.location.y);
         die_loc_z.setScore(player, player.location.z);
