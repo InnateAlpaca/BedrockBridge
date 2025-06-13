@@ -1,6 +1,6 @@
 /**
- * ************************** BedrockBridge v1.6.2 **************************
- * @version 1.6.2
+ * ************************** BedrockBridge v1.6.5 **************************
+ * @version 1.6.5
  * Developed by Esploratori-Development https://discord.gg/esploratori-development-1043447184210792468
  * This addon connects your bedrock-dedicated-server to your discord server through 
  * an external discord bot. More info at https://github.com/InnateAlpaca/BedrockBridge
@@ -8,7 +8,11 @@
  */
 
 import { system } from "@minecraft/server"
-
 system.run(async ()=>{
     await import("./bedrockbridge")
+})
+
+import { gameCommandManager } from "./GameCommandManager"
+system.beforeEvents.startup.subscribe(({ customCommandRegistry }) => {
+    gameCommandManager.registerCommands(customCommandRegistry);
 })

@@ -149,7 +149,7 @@ Allow or disable player transfer to another server through discord `/transfer` c
 * string
 
 Comma separated list of allowed partner servers with the following format *displayName:host:port*. Where *displayName is the name players will be using in-game to transfer, *host* is the target ip/domain, and *port* is the target port.
-```json
+```js
 // Example for variables.json
 {
     // ...
@@ -163,7 +163,40 @@ Comma separated list of allowed partner servers with the following format *displ
 * domain (e.g. `myserver.aternos.me`)
 
 This option is dedicated to people running a server on free hosting companies, or people who have to change server-address very often. This option will keep your token valid even if you are connecting from a different server-address, as long as the domain you added here is pointing to that origin.
- 
+Since 04/2025 it's totally optional, and only used as an additional layer of security.
+
+### allow_command_messages
+* boolean (true/false)
+
+If true bridgeDirect will also support events generated from commandblocks and NPCs.
+
+
+## Bridge Direct
+Bridge direct is an additional feature of BedrockBridge available since v1.4.0 that allows other addons to send messages to discord through our scriptevent API.
+The supported standard is [MBAIS](https://gist.github.com/InnateAlpaca/14912b54d7c8eae860bd40929345c154).
+
+Scriptevents can e run from other script-addons by command `world.runCommand("scriptevent " + JSON.stringify({/**...*/}))` or for more recent versions of mc `system.sendScriptEvent("discord:message", JSON.stringify({/**...*/}))`. 
+
+Since v1.6.5 it's also possible to send message with NPC or command block commands if previously enabled from settings (see "allow_command_messages")
+
+The available endpoints are the following.
+
+### discord:message
+Used to send a message to the chat.
+```js
+/scriptevent discord:message {"author":"GameNotification", "message": "Something happened in game!", "picture":"https://i.imgur.com/9y8IvBG.png"}
+```
+### discord:embed
+Used to send an embed to the chat.
+```js
+/scriptevent discord:embed {"author":"GameNotification", "embed":{ "title": "Red alert!", "description": "Something red happened!", "color": 15548997 }}
+```
+
+### discord:ready
+Scriptevent to be listened to in order to be notified if bridgeDirect is enabled and available (the scriptevent will be fired once the connection ahs been established and direct is ready to transmit).
+
+If bridgeDirect is not available a notification will appear on console, but listening this event is the only way for other scripts to get information about the direct status.
+
 ## BridgeAPI
 Since BedrockBridge v1.3.0 it's possible modify BedrockBridge addon through  custom api which is documented [here](https://github.com/InnateAlpaca/BedrockBridge/blob/main/docs/bridgeAPI/esploratori_bridge.md).
 
