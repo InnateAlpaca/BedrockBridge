@@ -1,4 +1,4 @@
-BedrockBridge v1.6.5 by EsploratoriDevelopment
+BedrockBridge v1.6.6 by EsploratoriDevelopment
 compatible with Bedrock 1.21.80 (till the next major update)
 
 INSTALLING
