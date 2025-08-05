@@ -12,13 +12,13 @@
 
 import "./external" // bridgeDirect capabilities. Do not comment, unless you want to disable discord connection for external packs
 
-import "./basicNicerChat"
-import "./basicCustomCommands"
-import "./deathCounter"
-import "./stepCounter"
-import "./playtime" 
-import "./gameModes"
-import "./TPS"
+// import "./basicNicerChat"
+// import "./basicCustomCommands"
+// import "./deathCounter"
+// import "./stepCounter"
+// import "./playtime" 
+// import "./gameModes"
+// import "./TPS"
 
 // import "./simpleCommandLog"
 // import "./getAwayWithMurder"
