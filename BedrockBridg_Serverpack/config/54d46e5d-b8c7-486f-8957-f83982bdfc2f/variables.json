@@ -4,5 +4,7 @@
 	"discord_link": true,
 	
 	"startup_notify": true,
-	"output": 0
+	"output": 0,
+	"partner_servers": "luka:lukadales1.mcserver.us:19132"
+
 }
