@@ -1,13 +1,10 @@
 /**
- * SimpleCommandLog @version 1.0.0 - BedrockBridge plugin
+ * SimpleCommandLog @version 1.1.2 - BedrockBridge plugin
  * 
  * This addon logs all commands run through the command form to discord. 
  * This way you can always be informed about what are your admins doing.
  * 
- * Note: all regular slash commands cannot be logged. As a consequence
- * you must make sure that your admins cannot run them, and will only use
- * the provided !command utility. The plugins will handle this bu de-opping
- * all users that you mark as "admins" (or any other tag you want).
+ * Note: This plugin will disable slash commands for all users except the one specified in the plugin settings.
  * 
  * How does it work? Admins will only be able to run commands through  a form,
  * that will be opened by running !command
@@ -25,22 +22,28 @@
  */
 
 // ***************************   Settings   ***************************
-//commands that cannot be run from the !command form
+// FORM COMMAND OPTIONS
+// commands that cannot be run from the !command form
 const forbiddenCommands = ["execute", "kill", "op"]
 
-//tags that identifie the player who can use the !command command
+// tags that identifies the player who can use the !command command
 const allowedCommandTags = ["admin"]
 
-// this will remove Op level form players who have the allowed tags. This way they will be able to run commands only through !command
-const deopTargets = true 
 
+// SLASH COMMAND OPTIONS
+// disable slash commands on the server
+const disableSlashCommands = true; // false
+
+// players with this tag will be still able to run slash commands
+const allowSlashCommandTags = [];
+const allowSlashCommandNames = []; // your nametag 
 // ********************************************************************
 
 import { system, Player, world } from "@minecraft/server"
 import { bridge, bridgeDirect } from "../addons";
 import { FormCancelationReason, ModalFormData } from "@minecraft/server-ui";
 
-var ENABLED = true; //pack enabled, disbale to avoid cache overflow if not bridge is established
+var ENABLED = true; //pack enabled, disable to avoid cache overflow if not bridge is established
 
 const cache = [];
 
@@ -53,6 +56,17 @@ bridgeDirect.events.directInitialize.subscribe(()=>{
         bridgeDirect.sendMessage(cache.shift());
     }
 })
+
+if (disableSlashCommands){
+    world.afterEvents.worldLoad.subscribe(()=>{
+        system.sendScriptEvent("esploratori:disable_commands", JSON.stringify({
+            options: {
+                excludePlayerNames: allowSlashCommandNames,
+                excludeTags: allowSlashCommandTags
+            }
+        }))
+    })
+}
 
 system.runTimeout(()=>{
     if (!bridgeDirect.ready){
@@ -71,7 +85,7 @@ class CommandForm extends ModalFormData {
         this.playerList.push(...world.getAllPlayers().map(p=>p.name));
         const description = "\nTarget to be identified by '@t' in the command textbox:\n"
         this.title("Command Manager")
-            .dropdown(description, this.playerList, 0)
+            .dropdown(description, this.playerList, {defaultValueIndex: 0})
             .textField("\nCommand to run:\n", "")
             .submitButton("Run")
     }
@@ -111,17 +125,19 @@ class CommandForm extends ModalFormData {
                 else {
                     cache.push(message);
                 }
-                player.runCommandAsync(command + " " + args.join(" ")).then(({ successCount }) => {
+                try {
+                    const { successCount } = player.runCommand(command + " " + args.join(" "))
                     if (successCount === 0) {
                         player.sendMessage("§cNo target match the selector.")
                     }
                     else {
-                        player.sendMessage('§7You ran "' + command + " " + args.join(" ")+'"')
-                        player.sendMessage("§eCommand succesfully executed.")
+                        player.sendMessage('§7You ran "' + command + " " + args.join(" ") + '"')
+                        // player.sendMessage("§eCommand succesfully executed.")
                     }
-                }, err => {
+                }
+                catch (err){
                     player.sendMessage("§c" + err)
-                })
+                }
             }
         }
         catch (err) {
@@ -140,11 +156,3 @@ bridge.bedrockCommands.registerTagCommand("command", (player)=>{
         player.sendMessage("§cThis functionality is not currently active. If the error persists please get in touch with assistance.")
     }
 }, "run a command", ...allowedCommandTags)
-
-if (deopTargets)
-    world.afterEvents.playerSpawn.subscribe(e=>{
-        if (!e.initialSpawn) return
-        if (e.player.isOp()&&e.player.getTags().find(t=>allowedCommandTags.includes(t))){
-            e.player.setOp(false);
-        }
-    })
