@@ -20,7 +20,7 @@
 	"dependencies": [
 		{
 			"module_name": "@minecraft/server",
-			"version": "2.3.0-beta"
+			"version": "2.4.0-beta"
 		},
 		{
 			"module_name": "@minecraft/server-ui",
@@ -40,4 +40,5 @@
         "license": "MIT",
         "url": "https://bedrockbridge.esploratori.space/"
     }
+
 }
