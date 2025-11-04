@@ -29,7 +29,8 @@ if (!pluginsDB.has("plugins")) {
         { path: "./bridgePlugins/idcAbtAnimals", enabled: false },
         { path: "./bridgePlugins/customCommandCompatibility", enabled: false },
         { path: "./bridgePlugins/basicWarps/main", enabled: false },
-        { path: "./bridgePlugins/chatRank/main", enabled: false }
+        { path: "./bridgePlugins/chatRank/main", enabled: false },
+        { path: "./bridgePlugins/blockStats", enabled: false }
     ]);
 }
 
