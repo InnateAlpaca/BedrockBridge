@@ -7,7 +7,7 @@ BedrockBridge is a minecraft addon that connects your bedrock-server to your dis
 Here you can get help and download the latest version of the pack, find a full installation tutorial, try the pack without installing it on our test-server. 
 You can also contact us by [email](mailto:development@esploratorismp.space).
 
-*Is it up to date?* So far supported versions are: **1.19.50, 1.19.60, 1.19.70, 1.19.80, 1.20.0, 1.20.10, 1.20.30, 1.20.40**, **1.20.50**, **1.20.60**, **1.20.70**, **1.20.80**, **1.21.0**, **1.21.2**, **1.21.20**,  **1.21.30**, **1.21.40**, **1.21.50**, **1.21.60**, **1.21.70**, **1.21.80**, **1.21.90**, **1.21.100**, **1.21.111** (latest), and minor following updates. You need to install the right addon version for each mc-version (check the tags for the right one).
+*Is it up to date?* So far supported versions are: **1.19.50, 1.19.60, 1.19.70, 1.19.80, 1.20.0, 1.20.10, 1.20.30, 1.20.40**, **1.20.50**, **1.20.60**, **1.20.70**, **1.20.80**, **1.21.0**, **1.21.2**, **1.21.20**,  **1.21.30**, **1.21.40**, **1.21.50**, **1.21.60**, **1.21.70**, **1.21.80**, **1.21.90**, **1.21.100**, **1.21.111**, **1.21.120** (latest), and minor following updates. You need to install the right addon version for each mc-version (check the tags for the right one).
 
 
 Feel free also to check our [FAQ](FAQ.md) and [DOCS](DOCS.MD).

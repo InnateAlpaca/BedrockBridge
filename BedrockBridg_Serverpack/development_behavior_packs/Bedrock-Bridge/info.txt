@@ -1,5 +1,5 @@
-BedrockBridge v1.6.9 by EsploratoriDevelopment
-compatible with Bedrock 1.21.111 (till the next major update)
+BedrockBridge v1.6.10 by EsploratoriDevelopment
+compatible with Bedrock 1.21.120 (till the next major update)
 
 INSTALLING
 1) Invite the bot to your server from this link https://discord.com/api/oauth2/authorize?client_id=1041838898843762769&permissions=2684357632&scope=bot%20applications.commands
