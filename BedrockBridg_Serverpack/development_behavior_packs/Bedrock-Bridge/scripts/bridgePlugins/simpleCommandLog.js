@@ -1,5 +1,5 @@
 /**
- * SimpleCommandLog @version 1.1.0 - BedrockBridge plugin
+ * SimpleCommandLog @version 1.1.2 - BedrockBridge plugin
  * 
  * This addon logs all commands run through the command form to discord. 
  * This way you can always be informed about what are your admins doing.
@@ -32,7 +32,7 @@ const allowedCommandTags = ["admin"]
 
 // SLASH COMMAND OPTIONS
 // disable slash commands on the server
-const disableSlashCommands = false; // false
+const disableSlashCommands = true; // false
 
 // players with this tag will be still able to run slash commands
 const allowSlashCommandTags = [];
@@ -58,11 +58,13 @@ bridgeDirect.events.directInitialize.subscribe(()=>{
 })
 
 if (disableSlashCommands){
-    world.afterEvents.worldInitialize.subscribe(e=>{
-        world.getDimension("overworld").runCommand("scriptevent esploratori:disable_commands "+JSON.stringify({options:{
-            excludePlayerNames: allowSlashCommandNames,
-            excludeTags: allowSlashCommandTags
-        }}))
+    world.afterEvents.worldLoad.subscribe(()=>{
+        system.sendScriptEvent("esploratori:disable_commands", JSON.stringify({
+            options: {
+                excludePlayerNames: allowSlashCommandNames,
+                excludeTags: allowSlashCommandTags
+            }
+        }))
     })
 }
 
@@ -83,7 +85,7 @@ class CommandForm extends ModalFormData {
         this.playerList.push(...world.getAllPlayers().map(p=>p.name));
         const description = "\nTarget to be identified by '@t' in the command textbox:\n"
         this.title("Command Manager")
-            .dropdown(description, this.playerList, 0)
+            .dropdown(description, this.playerList, {defaultValueIndex: 0})
             .textField("\nCommand to run:\n", "")
             .submitButton("Run")
     }
@@ -123,17 +125,19 @@ class CommandForm extends ModalFormData {
                 else {
                     cache.push(message);
                 }
-                player.runCommandAsync(command + " " + args.join(" ")).then(({ successCount }) => {
+                try {
+                    const { successCount } = player.runCommand(command + " " + args.join(" "))
                     if (successCount === 0) {
                         player.sendMessage("§cNo target match the selector.")
                     }
                     else {
-                        player.sendMessage('§7You ran "' + command + " " + args.join(" ")+'"')
+                        player.sendMessage('§7You ran "' + command + " " + args.join(" ") + '"')
                         // player.sendMessage("§eCommand succesfully executed.")
                     }
-                }, err => {
+                }
+                catch (err){
                     player.sendMessage("§c" + err)
-                })
+                }
             }
         }
         catch (err) {
